@@ -1,0 +1,16 @@
+package com.exceptionsprogs;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+public class NullpointerExceptionExample {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		System.setProperty("webdriver.edgge.driver", "F:\\Automation\\Srini Softwares.jar");
+		WebDriver driver=new EdgeDriver();
+		
+	}
+
+}

@@ -1,0 +1,10 @@
+package com.config;
+
+import java.io.FileInputStream;
+
+public class ProprtyConfig {
+	
+	public FileInputStream propfile=new FileInputStream("./SeleniumPractice/src/main/java/com/config/proprty.properties");
+	
+
+}

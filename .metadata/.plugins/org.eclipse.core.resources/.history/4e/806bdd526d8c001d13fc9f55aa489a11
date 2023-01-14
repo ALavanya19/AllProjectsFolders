@@ -1,0 +1,91 @@
+package com.seleniumpractice;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Test;
+
+import com.logs.Log;
+import com.seleniumpractice.BaseTest;
+public class MercuryRegistrationWithExcelData extends BaseTest{
+
+	
+	@Test
+	public void Registration() {
+		
+		try {
+			//TestData File
+		testDataFile=new FileInputStream("./src/main/java/com/InputDataFiles/MercuryUsersExcel.xlsx");
+		workbook=new XSSFWorkbook(testDataFile);
+		sheet=workbook.getSheet("Sheet1");
+		Log.info("Test Data File Loaded Successfully");
+		}
+		catch(FileNotFoundException e1)
+		{
+			e1.getStackTrace();
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		//Click on Registration
+        driver.findElement(By.xpath("//td/a[text()='REGISTER']")).click();
+		Log.info("Registration Link Cliked Successfully");
+		
+		
+		//Get data from TestData and send to respective elements
+		for(int row=1;row<sheet.getLastRowNum();row++) {
+			
+			String firstNameD=sheet.getRow(row).getCell(0).toString();
+			String lastNameD=sheet.getRow(row).getCell(1).toString();
+			String phoneD=sheet.getRow(row).getCell(2).toString();
+			String emailD=sheet.getRow(row).getCell(3).toString();
+			String addressD=sheet.getRow(row).getCell(4).toString();
+			String cityD=sheet.getRow(row).getCell(5).toString();
+			String stateD=sheet.getRow(row).getCell(6).toString();
+			String postalCodeD=sheet.getRow(row).getCell(7).toString();
+			String countryD=sheet.getRow(row).getCell(8).toString();
+			String userNameD=sheet.getRow(row).getCell(9).toString();
+			String password=sheet.getRow(row).getCell(10).toString();
+			String confirmPasswordD=sheet.getRow(row).getCell(10).toString();
+		
+		//Inspect all Elements in WebPage
+			//Contact Information
+		driver.findElement(By.xpath("//input[@name='firstName']")).sendKeys(firstNameD);
+		driver.findElement(By.xpath("//input[@name='lastName']")).sendKeys(lastNameD);
+		driver.findElement(By.xpath("//input[@name='phone']")).sendKeys(phoneD);
+		driver.findElement(By.xpath("//input[@name='userName']")).sendKeys(emailD);
+
+		//Mailing information
+		driver.findElement(By.xpath("//input[@name='address1']")).sendKeys(addressD);
+		driver.findElement(By.xpath("//input[@name='city']")).sendKeys(cityD);
+		driver.findElement(By.xpath("//input[@name='state']")).sendKeys(stateD);
+		driver.findElement(By.xpath("//input[@name='postalCode']")).sendKeys(postalCodeD);
+		WebElement CountryE=driver.findElement(By.xpath("//*[@name='country']"));
+		Select s=new Select(CountryE);
+		s.selectByVisibleText(countryD);
+		
+	
+		//User information
+		driver.findElement(By.xpath("//*[@name='email']"));
+		driver.findElement(By.xpath("//*[@name='password']"));
+		driver.findElement(By.xpath("//*[@name='confirmPassword']"));
+		
+		
+		//Submit Button
+		driver.findElement(By.xpath("//*[@name='submit']")).click();
+		
+		
+				
+		}
+		
+	}
+	
+
+}
+

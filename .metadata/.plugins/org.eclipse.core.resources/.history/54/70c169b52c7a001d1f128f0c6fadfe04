@@ -1,0 +1,20 @@
+package com.BrokenLinks;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class BrokenLinks {
+
+	public static void main(String[] args) {
+		
+		String applicationUrl="https://demoqa.com/broken";
+		WebDriver driver;
+		
+		WebDriverManager.chromedriver().setup();
+		driver=new ChromeDriver();
+		
+	}
+
+}

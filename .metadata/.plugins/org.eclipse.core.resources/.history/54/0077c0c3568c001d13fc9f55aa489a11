@@ -1,0 +1,46 @@
+package com.seleniumpractice;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.WebDriver;
+
+import com.logs.Log;
+
+public class BaseTest {
+
+	public static WebDriver driver;
+	
+	//Properties File info
+    public FileInputStream propFile;
+    public Properties prop;
+    
+    //TestData file info
+    public FileInputStream testDataFile;
+    public XSSFWorkbook workbook;
+    public XSSFSheet sheet;
+    
+    
+    public BaseTest() throws IOException {
+    	
+    	propFile=new FileInputStream("./src/main/java/com/config/proprty.properties");
+    	prop=new Properties();
+    	prop.load(propFile);
+    }
+    
+    public void setUp() {
+    	
+    	if(prop.getProperty("browser").equalsIgnoreCase("edge"))
+    	{
+    		System.setProperty("webdriver.edge.driver", "./DriverFiles/msedgedriver.exe");
+    		
+    		
+    	}
+    	
+    	
+    }
+		
+}

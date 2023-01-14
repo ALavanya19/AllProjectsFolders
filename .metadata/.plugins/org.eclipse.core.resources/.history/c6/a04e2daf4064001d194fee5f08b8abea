@@ -1,0 +1,10 @@
+<suite name="OrangeHRMApplication">
+  <test name="onchrome">
+  <parameter name="Browser" value="chrome"/>
+   <classes>
+    <class name="com.OrangeHRMTestNG.OrangeHRM_TestNG_Login"/>
+   </classes>
+  </test>
+
+</suite>
+  

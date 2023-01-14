@@ -1,0 +1,16 @@
+package com.seleniumpractice;
+
+import org.testng.annotations.Test;
+
+public class DropDownSorting extends BaseTest {
+	
+	//applicationUrl=https://testautomationpractice.blogspot.com/
+	
+	@Test
+	public void animalDropDownSorting() {
+		
+		
+		
+	}
+
+}

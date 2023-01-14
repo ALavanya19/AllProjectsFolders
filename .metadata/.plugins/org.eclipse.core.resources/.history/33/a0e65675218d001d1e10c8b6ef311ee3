@@ -1,0 +1,185 @@
+package com.seleniumpractice;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+
+import com.logs.Log;
+
+import junit.framework.Assert;
+
+public class DropDownSorting extends BaseTest {
+	
+	//applicationUrl=https://testautomationpractice.blogspot.com/
+	
+	public String dropDownsSorting(List<WebElement> list) {
+		
+		ArrayList<String>originalList=new ArrayList<String>();
+		ArrayList<String>tempList=new ArrayList<String>();
+		
+		//Get all elements into arraylist
+		for(WebElement s:list)
+		{
+			originalList.add(s.getText());
+			tempList.add(s.getText());
+		}
+		
+		System.out.println("Before Sorting DropDown original List: "+originalList);
+		System.out.println("Before Sorting DropDown temp List: "+tempList);
+		
+		Collections.sort(tempList);
+		
+		System.out.println("After Sorting DropDown original List: "+originalList);
+		System.out.println("After Sorting DropDown temp List: "+tempList);
+		
+		
+		if(originalList.equals(tempList))
+		{
+			return "Select Animal Drop Down is Sorted";
+			//Log.info("Select Animal Drop Down is Sorted");
+		}
+		else
+		{
+			return "Select Animal Drop Down is not Sorted";
+			//Log.info("Select Animal Drop Down is not Sorted");
+		}
+		//return null;
+		
+	}
+	
+	@Test
+	public void animalDropDownSorting() {
+		
+		//Select Animal Dropdown element
+		List<WebElement>animalDropDown=driver.findElements(By.xpath("//select[@name='animals']/option"));
+		
+		String msg=dropDownsSorting(animalDropDown);		
+		
+		System.out.println(msg);
+		
+		
+	}
+	/*
+	 * 
+	 */
+	@Test
+	public void speedDropDown() {
+		
+		//Find select a speed drop down element
+		List<WebElement>speedDropDown=driver.findElements(By.xpath("//select[@name='speed']/option"));
+		
+        String msg=dropDownsSorting(speedDropDown);		
+		
+		System.out.println(msg);
+		
+		
+	}
+	/*
+	@Test(groups={"DropDowns"})
+	public void fileDropDown() {
+		
+		//find out Select file Drop Down elements
+		List<WebElement>fileDropDown=driver.findElements(By.xpath("//select[@name='files']/option"));
+		
+		//Create original arraylist and temp arraylist
+		ArrayList<String> originalList=new ArrayList<String>();
+		ArrayList<String> tempList=new ArrayList<String>();
+		
+		for(WebElement e:fileDropDown)
+		{
+			originalList.add(e.getText());
+			tempList.add(e.getText());
+		}
+				
+		System.out.println("Before Sorting DropDown original List: "+originalList);
+		System.out.println("Before Sorting DropDown temp List: "+tempList);
+				
+		Collections.sort(tempList);
+				
+		System.out.println("After Sorting DropDown original List: "+originalList);
+		System.out.println("After Sorting DropDown temp List: "+tempList);
+
+		if(originalList.equals(tempList))
+		{
+			Log.info("Select File Drop Down is Sorted");
+		}
+		else
+		{
+			Log.info("Select File Drop Down is not Sorted");
+		}
+	}
+	
+	@Test(groups={"DropDowns"})
+	public void numberDropDown() {
+		
+		//find out Select file Drop Down elements
+		List<WebElement>numberDropDown=driver.findElements(By.xpath("//select[@name='number']/option"));
+				
+		//Create original arraylist and temp arraylist
+		ArrayList<String> originalList=new ArrayList<String>();
+		ArrayList<String> tempList=new ArrayList<String>();
+				
+		for(WebElement e:numberDropDown)
+		{
+			originalList.add(e.getText());
+			tempList.add(e.getText());
+		}
+						
+		System.out.println("Before Sorting DropDown original List: "+originalList);
+		System.out.println("Before Sorting DropDown temp List: "+tempList);
+						
+		Collections.sort(tempList);
+						
+		System.out.println("After Sorting DropDown original List: "+originalList);
+		System.out.println("After Sorting DropDown temp List: "+tempList);
+
+		if(originalList.equals(tempList))
+		{
+			Log.info("Select Number Drop Down is Sorted");
+		}
+		else
+		{
+			Log.info("Select Number Drop Down is not Sorted");
+		}
+		
+	}
+	
+	@Test(groups={"DropDowns"})
+	public void productsDropDown()
+	{
+		//find out Select file Drop Down elements
+		List<WebElement>productsDropDown=driver.findElements(By.xpath("//select[@name='products']/option"));
+						
+		//Create original arraylist and temp arraylist
+		ArrayList<String> originalList=new ArrayList<String>();
+		ArrayList<String> tempList=new ArrayList<String>();
+					
+		for(WebElement e:productsDropDown)
+		{
+			originalList.add(e.getText());
+			tempList.add(e.getText());
+		}
+								
+		System.out.println("Before Sorting DropDown original List: "+originalList);
+		System.out.println("Before Sorting DropDown temp List: "+tempList);
+								
+		Collections.sort(tempList);
+								
+		System.out.println("After Sorting DropDown original List: "+originalList);
+		System.out.println("After Sorting DropDown temp List: "+tempList);
+
+		if(originalList.equals(tempList))
+		{
+			Log.info("Select Products Drop Down is Sorted");
+		}
+		else
+		{
+			Log.info("Select Products Drop Down is not Sorted");
+		}
+	}
+   */
+}

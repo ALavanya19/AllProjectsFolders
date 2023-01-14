@@ -1,0 +1,13 @@
+package com.logs;
+
+import org.apache.log4j.Logger;
+
+public class LogFile {
+
+	Logger logg=Logger.getLogger(LogFile.class);
+    public static void LogFile(String message) {
+    	
+    }
+	
+	
+}

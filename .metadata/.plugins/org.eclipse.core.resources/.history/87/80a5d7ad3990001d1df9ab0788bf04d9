@@ -1,0 +1,14 @@
+package com.orangehrm;
+
+import java.io.FileInputStream;
+import java.util.Properties;
+
+public class Utilies {
+
+	public FileInputStream propFile;
+	public Properties prop;
+	public static void initPropFile() {
+		
+	}
+	
+}

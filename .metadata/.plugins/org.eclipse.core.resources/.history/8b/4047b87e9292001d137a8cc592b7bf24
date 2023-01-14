@@ -1,0 +1,13 @@
+package com.Inheritance;
+
+public class InheritanceEx1 {
+
+	InheritanceEx1(){
+		System.out.println("Contructor");
+	}
+	
+	public void m1() {
+		
+	}
+   
+}

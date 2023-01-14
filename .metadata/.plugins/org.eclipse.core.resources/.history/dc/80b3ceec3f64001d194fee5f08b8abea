@@ -1,0 +1,18 @@
+<suite name="OrangeHRMApplication">
+  <test name="omchrome">
+   <classes>
+    <class name="com.OrangeHRMTestNG.OrangeHRM_TestNG_Login"/>
+   </classes>
+  </test>
+  <test name="AddEmployeeTest">
+   <classes>
+    <class name="com.OrangeHRMTestNG.OrangeHRM_AddEmployee"/>
+   </classes>
+  </test>
+  <test name="EmpListExcelTest">
+   <classes>
+    <class name="com.OrangeHRMTestNG.OrangeHRM_EmployeeListintoExcel"/>
+   </classes>
+  </test>
+</suite>
+  

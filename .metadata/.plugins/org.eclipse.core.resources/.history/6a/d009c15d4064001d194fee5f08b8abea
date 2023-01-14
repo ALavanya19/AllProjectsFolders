@@ -1,0 +1,12 @@
+package com.Grid;
+
+import org.openqa.selenium.WebDriver;
+
+public class GirdExample {
+
+	WebDriver driver;
+	String orangeHRMApplicationUrlAddress="http://127.0.0.1/orangehrm-4.2.0.1/symfony/web/index.php/auth/login";
+	
+	
+	
+}

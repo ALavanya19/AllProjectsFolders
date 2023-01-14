@@ -1,0 +1,11 @@
+package com.OrangeHRM;
+
+import com.OrangeHRMApplication.BaseTest;
+
+public class AdminUserManagementTest extends BaseTest {
+
+	@Test
+	public void loginTest
+	
+	
+}

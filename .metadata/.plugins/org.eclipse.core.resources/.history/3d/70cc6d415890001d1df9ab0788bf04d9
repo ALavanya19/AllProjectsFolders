@@ -1,0 +1,24 @@
+package com.orangehrmpages;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+import com.orangehrm.Base;
+
+public class ResetPasswordPage extends Base {
+
+	@FindBy(xpath="//*[@name='username']")
+	WebElement usernameE;
+	
+	@FindBy(xpath="//*[@type='button']")
+	WebElement cancelE;
+	
+	@FindBy(xpath="//*[@type='submit']")
+	WebElement resetPasswordE;
+	
+	//business logic
+	public sendPasswordRestPage resetPassword() {
+		
+		return new sendPasswordPage();
+	}
+}

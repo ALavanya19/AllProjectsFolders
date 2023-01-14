@@ -1,0 +1,16 @@
+package com.DummyExcel;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+public class ReadExcel {
+
+	public static void main(String[] args) throws FileNotFoundException {
+		// TODO Auto-generated method stub
+
+		//Locate the file
+		FileInputStream file=new FileInputStream("./src/com/DummyExcel/excel.xlsx");
+		
+	}
+
+}

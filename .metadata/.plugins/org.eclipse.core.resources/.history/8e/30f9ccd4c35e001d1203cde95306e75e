@@ -1,0 +1,77 @@
+package com.OrangeHRM;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import org.apache.poi.sl.usermodel.Sheet;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class TestNG_TestCase6 extends OrangeHRM_BaseTest{
+
+     
+    Actions action=new Actions(driver);
+    
+	
+	@Test(priority=1)
+	public void LoginTest() {
+		
+		System.out.println("Login");
+		driver.findElement(By.id("txtUsername")).sendKeys("ALavanya19");
+		driver.findElement(By.name("txtPassword")).sendKeys("ALavanya@19");
+		driver.findElement(By.id("btnLogin")).click();
+	}
+	
+	@Test(priority=2)
+	public void orangeHRMAdminTest() {
+		
+		action.moveToElement(driver.findElement(By.id("menu_admin_viewAdminModule"))).build().perform();
+		
+	}
+    @Test(priority=3)
+	public void orangeHRMAdminUserManagementTest()
+	{
+		//action=new Actions(driver);
+    	
+		action.moveToElement(driver.findElement(By.id("menu_admin_UserManagement"))).build().perform();
+		driver.findElement(By.id("menu_admin_viewSystemUsers")).click();
+		
+	}
+    
+
+    
+    @Test(priority=4)
+    public void addSystemUser() {
+    	
+
+    	FileInputStream file=new FileInputStream("/src/com/OrangeHRM/OrangeHRM.xlsx");
+    	XSSFWorkbook workbook=new XSSFWorkbook(file);
+    	XSSFSheet sheet=workbook.getSheet("Admin");
+    	
+    	
+    	
+    	//Click on Add Button to add System Users
+    	driver.findElement(By.name("btnAdd")).click();
+    	
+    	//Select User Role Properties and perform operation
+    	Select select=new Select(driver.findElement(By.id("systemUser_userType")));
+    	select.selectByVisibleText("Admin");
+    	
+    	driver.findElement(By.id("systemUser_employeeName_empName")).sendKeys(sheet.getRow(2).getCell(1).getStringCellValue());
+    	
+    	
+    	
+       	
+    }
+    
+}

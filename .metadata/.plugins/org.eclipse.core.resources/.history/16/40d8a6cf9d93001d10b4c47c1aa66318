@@ -1,0 +1,36 @@
+package com.arrayExamples;
+
+import java.util.ArrayList;
+
+public class ArrayExample {
+
+	public static void main(String[] args) {
+		
+		ArrayList arraylist=new ArrayList();
+		arraylist.add(12);
+		arraylist.add(12);
+		arraylist.add(12);
+		arraylist.add(12);
+		arraylist.add(12);
+		arraylist.add(12);
+		arraylist.add(12);
+		arraylist.add(12);
+		arraylist.add(12);
+		
+		System.out.println(arraylist.size());
+		
+		int[] array=new int[7];
+	
+		array[1]=34;
+		array[2]=34;
+		array[3]=34;
+		array[4]=34;
+		array[5]=34;
+		array[6]=34;
+	
+		
+		System.out.println(array.length);
+
+	}
+
+}

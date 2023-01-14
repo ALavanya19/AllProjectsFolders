@@ -1,0 +1,22 @@
+package com.seleniumpractice;
+
+import java.io.IOException;
+
+import org.testng.annotations.Test;
+
+import com.seleniumpractice.BaseTest;
+public class MercuryRegistrationWithExcelData extends BaseTest{
+
+	public public MercuryRegistrationWithExcelData() {
+	        
+	}
+	
+	@Test
+	public void Registration() {
+		
+		
+		
+	}
+	
+
+}

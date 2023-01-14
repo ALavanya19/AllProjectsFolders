@@ -1,0 +1,48 @@
+package com.orangehrmpages;
+
+import java.util.List;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
+import org.openqa.selenium.support.FindBy;
+
+import com.orangehrm.Base;
+
+public class HomePage extends Base {
+   
+	//Object Repository
+	@FindBy(xpath="//*[@alt='client brand banner']")
+	WebElement orangeHrmLogoTopE;
+	
+	@FindBy(xpath="//*[@class='oxd-text oxd-text--span oxd-main-menu-item--name']")
+	List<WebElement>menuElementsE;
+	
+	@FindBy(xpath="//*[@class='oxd-input oxd-input--active']")
+	WebElement searchMenuE;
+	
+	@FindAll(value="",)
+	List<WebElement>timeAtWorkAttendanceCardProfileImageE;
+	
+	@FindAll({
+		@FindBy(xpath="//*[@class='orangehrm-attendance-card-profile-image']")
+		@FindBy(xpath="//*[@class='oxd-text oxd-text--p orangehrm-attendance-card-state']");
+		@findBy(xpath="//*[@class='oxd-text oxd-text--p orangehrm-attendance-card-details']");
+	})
+	
+	@FindBy(xpath="//*[@class='orangehrm-dashboard-widget-body']/*[@class='emp-attendance-chart']")
+	WebElement timeAtWorkEmpAttendeanceChartE;
+
+	
+	
+	//business logic
+	public void timeAtWorkAttendanceCard() {
+		
+		for(WebElement e:timeAtWorkAttendanceCardE)
+		{
+			System.out.println(e.getText());
+		}
+		
+	}
+	
+	
+}

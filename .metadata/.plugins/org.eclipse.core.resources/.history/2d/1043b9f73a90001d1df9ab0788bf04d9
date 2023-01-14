@@ -1,0 +1,10 @@
+package com.orangehrm;
+
+import com.relevantcodes.extentreports.ExtentReports;
+
+public class Reports {
+	
+	public static ExtentReports report;
+	public static ExtentTest logger;
+
+}

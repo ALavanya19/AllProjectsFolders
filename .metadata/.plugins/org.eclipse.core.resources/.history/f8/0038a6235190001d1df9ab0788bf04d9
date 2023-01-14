@@ -1,0 +1,42 @@
+package com.orangehrm;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class DataAccess {
+
+	
+	public static FileInputStream multipleTestDataFile;
+	public static XSSFWorkbook workbook;
+	public static XSSFSheet sheet;
+	
+	//initiza excel file
+	public static void initTestDataExcelFile() {
+		
+		try {
+			multipleTestDataFile=new FileInputStream("./TestData/OrangeHRM_Login_MultipleTestData.xlsx");
+			workbook=new XSSFWorkbook(multipleTestDataFile);
+			sheet=workbook.getSheet("Sheet1");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	public static void readTestDataExcelFile() {
+		
+		for(int row=0;row<sheet.getLastRowNum();row++)
+		{
+			
+		}
+	}
+	
+	
+}

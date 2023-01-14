@@ -1,0 +1,65 @@
+package com.seleniumpractice;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+
+import com.logs.Log;
+import com.seleniumpractice.BaseTest;
+public class MercuryRegistrationWithExcelData extends BaseTest{
+
+	public MercuryRegistrationWithExcelData() {
+	      
+		try {
+			//TestData File
+		testDataFile=new FileInputStream("./src/main/java/com/InputDataFiles/MercuryUsersExcel.xlsx");
+		workbook=new XSSFWorkbook(testDataFile);
+		sheet=workbook.getSheet("Sheet1");
+		Log.info("Test Data File Loaded Successfully");
+		}
+		catch(FileNotFoundException e1)
+		{
+			e1.getStackTrace();
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void Registration() {
+		
+		//Inspect all Elements in WebPage
+		WebElement firstNameE=driver.findElement(By.xpath("//input[@name='firstName']"));
+		WebElement lastNameE=driver.findElement(By.xpath("//input[@name='lastName']"));
+		WebElement phoneE=driver.findElement(By.xpath("//input[@name='phone']"));
+		WebElement emailE=driver.findElement(By.xpath("//input[@name='userName']"));
+		WebElement addressE=driver.findElement(By.xpath("//input[@name='address1']"));
+		WebElement cityE=driver.findElement(By.xpath("//input[@name='city']"));
+		WebElement stateE=driver.findElement(By.xpath("//input[@name='state']"));
+		WebElement postalCodeE=driver.findElement(By.xpath("//input[@name='postalCode']"));
+		WebElement countryE=driver.findElement(By.xpath("//*[@name='country']"));
+		WebElement userNameE=driver.findElement(By.xpath("//*[@name='email']"));
+		WebElement passwordE=driver.findElement(By.xpath("//*[@name='password']"));
+		WebElement confirmPasswordE=driver.findElement(By.xpath("//*[@name='confirmPassword']"));
+		
+		WebElement sybmitE=driver.findElement(By.xpath("//*[@name='submit']"));
+		
+		
+		
+		//Get data from TestData and send to respective elements
+		
+		
+		
+		
+		
+	}
+	
+
+}
+

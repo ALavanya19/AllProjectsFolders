@@ -1,0 +1,89 @@
+package com.orangehrm;
+
+import java.io.IOException;
+
+import org.testng.Assert;
+
+import com.orangehrmpages.LoginPage;
+import com.orangehrm.Reports;
+
+public class LoginPageTest extends Base{
+
+	LoginPage loginPage;
+	public LoginPageTest() {
+		super();
+	}
+	
+	public void setUp() throws IOException {
+		
+	    initilization();
+	    loginPage=new LoginPage();
+
+	}
+	
+	public void orangeHrmLogoTopTest()
+	{
+		Reports.logger=Reports.report.createTest("LoginPage orangeHrmLogoTopTest");
+		Reports.logger.info("Validating Login Page orangeHRMLogo on Top");
+		boolean orangeHrmLogoTopImageStatus=loginPage.orangeHrmLogoTop();
+		Assert.assertTrue(orangeHrmLogoTopImageStatus);
+		Reports.logger.pass("Login Page orangeHRMLogo validation successfull");
+		Logs.info("Login Page orangeHRM Logo validation successfull");
+	}
+	
+	public void hrForAllLogoRightTest() {
+		
+		Reports.logger=Reports.report.createTest("LoginPage hrForAllLogoRightTest");
+		Reports.logger.info("Validating Login Page hrForAllLogo on Right");
+		boolean orangeHrmLogoTopImageStatus=loginPage.hrForAllLogoRight();
+		Assert.assertTrue(orangeHrmLogoTopImageStatus);
+		Reports.logger.pass("Login Page hrForAllLogo validation successfull");
+		Logs.info("Login Page hrForAllLogo Logo validation successfull");
+		
+	}
+	
+	public void LoginTest() throws IOException {
+		Reports.logger=Reports.report.createTest("LoginPage Test");
+		Reports.logger.info("Validating Login Page Login");
+		loginPage.Login(Utilies.readPropFileData("username"), Utilies.readPropFileData("password"));
+	    String url=driver.getCurrentUrl();
+	    if(url.contains("dashboard"))
+	    {
+	    	Reports.logger.pass("User Login Successful");
+	    	Logs.info("User Login Successfull - PASS");
+	    }
+	    else
+	    {
+	    	Reports.logger.pass("User Login Unsuccessful");
+	    	Logs.info("User Login Unsccessfull - FAIL");
+	    }
+	   
+	}
+	
+	public void LoginMultipleTestData() throws IOException {
+		
+		Reports.logger=Reports.report.createTest("LoginPage Test");
+		Reports.logger.info("Validating Login Page Login");
+		Object[][] data=DataAccess.readTestDataExcelFile();
+		
+		for(int row=0;row<data.length();row++)
+		{
+			
+		}
+		loginPage.Login(DataAccess.readTestDataExcelFile(), Utilies.readPropFileData("password"));
+	    String url=driver.getCurrentUrl();
+	    if(url.contains("dashboard"))
+	    {
+	    	Reports.logger.pass("User Login Successful");
+	    	Logs.info("User Login Successfull - PASS");
+	    }
+	    else
+	    {
+	    	Reports.logger.pass("User Login Unsuccessful");
+	    	Logs.info("User Login Unsccessfull - FAIL");
+	    }
+		
+	}
+	
+	
+}

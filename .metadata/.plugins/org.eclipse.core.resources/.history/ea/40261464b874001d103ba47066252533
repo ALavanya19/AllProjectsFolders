@@ -1,0 +1,11 @@
+package com.log4j;
+
+public class Log4jEx {
+	
+	public static void main(String [] arg) {
+		
+		Log.in
+		
+	}
+
+}

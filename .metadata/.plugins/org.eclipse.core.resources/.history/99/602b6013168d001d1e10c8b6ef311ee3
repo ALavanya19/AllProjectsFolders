@@ -1,0 +1,35 @@
+package com.seleniumpractice;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+
+public class DropDownSorting extends BaseTest {
+	
+	//applicationUrl=https://testautomationpractice.blogspot.com/
+	
+	@Test
+	public void animalDropDownSorting() {
+		
+		//Select Animal Dropdown element
+		List<WebElement>animalDropDown=driver.findElements(By.xpath("//select[@name='animals']/option"));
+		
+		
+		ArrayList<String>originalList=new ArrayList<String>();
+		ArrayList<String>tempList=new ArrayList<String>();
+		
+		
+		for(WebElement s:animalDropDown)
+		{
+			originalList.add(s.getText());
+			tempList.add(s.getText());
+		}
+		
+		
+		
+	}
+
+}

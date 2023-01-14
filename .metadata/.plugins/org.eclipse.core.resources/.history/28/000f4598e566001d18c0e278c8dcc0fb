@@ -1,0 +1,12 @@
+package com.annotations;
+
+public class Eample2 extends Eample1 {
+
+	@org.testng.annotations.Test
+	public void Test() {
+		Eample1 e1=new Eample1();
+		
+		
+	}
+	
+}

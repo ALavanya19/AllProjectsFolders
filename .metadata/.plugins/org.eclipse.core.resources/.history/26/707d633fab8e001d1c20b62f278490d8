@@ -1,0 +1,19 @@
+package com.exceptionsprogs;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class NullpointerExceptionExample {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		System.setProperty("webdriver.edgge.driver", "F:\\Automation\\Srini Softwares\\selenium-server-standalone-3.141.59.jar");
+		WebDriver driver=new EdgeDriver();
+		
+		WebDriverWait wait=new WebDriverWait(driver, 20);
+		
+	}
+
+}

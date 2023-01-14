@@ -1,0 +1,68 @@
+package com.orangehrmpages;
+
+import java.util.List;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
+import org.openqa.selenium.support.FindBy;
+
+import com.orangehrm.Base;
+
+public class HomePage extends Base {
+   
+	//Object Repository
+	@FindBy(xpath="//*[@alt='client brand banner']")
+	WebElement orangeHrmLogoTopE;
+	
+	@FindBy(xpath="//*[@class='oxd-text oxd-text--span oxd-main-menu-item--name']")
+	List<WebElement>menuElementsE;
+	
+	@FindBy(xpath="//*[@class='oxd-input oxd-input--active']")
+	WebElement searchMenuE;
+	
+	//Time at Work Attendance Card Elements
+	@FindBy(xpath="//*[@class='orangehrm-attendance-card-profile-image']")
+	WebElement timeAtWorkProfileImageE;
+	
+	@FindBy(xpath="//*[@class='oxd-text oxd-text--p orangehrm-attendance-card-state']")
+	WebElement timeAtWorkAttendanceStateE;
+	
+	@FindBy(xpath="//*[@class='oxd-text oxd-text--p orangehrm-attendance-card-details']")
+	WebElement timeAtWorkAttendanceCardE;
+	
+	@FindBy(xpath="//*[@class='oxd-text oxd-text--span orangehrm-attendance-card-fulltime']/b")
+	List<WebElement> timeAtWorkAttendanceCardTimeE;
+	
+	@FindBy(xpath="//*[@class='oxd-icon-button oxd-icon-button--solid-main orangehrm-attendance-card-action']")
+	WebElement timeAtWorkAttendanceCardTimeButtonE;
+	
+	@FindBy(xpath="//*[@class='orangehrm-dashboard-widget-body']/*[@class='emp-attendance-chart']")
+	WebElement timeAtWorkEmpAttendeanceChartE;
+
+	
+	//My Actions Elements
+	@FindBy(xpath="//*[@class='oxd-icon-button oxd-icon-button--success orangehrm-report-icon']")
+	WebElement leaveRequestToApproveE;
+	
+	
+	
+	
+	//Quick Luanch elements
+	@FindBy(xpath="//div[@class='oxd-grid-item oxd-grid-item--gutters orangehrm-quick-launch-card']/button[@class='oxd-icon-button orangehrm-quick-launch-icon']")
+    List<WebElement>quickLaunchE;	
+	
+	
+	//Employeee Distribution by Sub Unit
+	@FindBy(xpath="//*[@id='ylZggCU9']")
+	WebElement empDistributionSubUnitChartE;
+	
+	//Employee Distribution by Location
+	@FindBy(xpath="//*[@id='JvRA7VhU']")
+	WebElement empDisLocationChartE;
+	
+	
+	
+	//business logic
+   	
+	
+}

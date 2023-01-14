@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="OrangeHRMApplicationGrid">
+  
+  <test name="onedge">
+  <parameter name="Browser" value="chrome"/>
+   <classes>
+    <class name="com.Grid.GirdExample"/>
+   </classes>
+  </test>
+ 
+</suite>
+  

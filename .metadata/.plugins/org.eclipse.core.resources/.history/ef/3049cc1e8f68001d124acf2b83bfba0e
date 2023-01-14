@@ -1,0 +1,46 @@
+package com.OrangeHRMTestCases;
+
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import com.OrangeHRMAppPages.LoginPage;
+import com.OrangeHRMAppPages.PimPage;
+import com.OrangeHRMBaseTest.BaseTest;
+
+public class PimPageTest  extends BaseTest{
+	
+	@BeforeTest
+	public void loginTest() {
+	
+		loginPage=new LoginPage();
+		loginPage.login("ALavanya19", "ALavanya@19");
+		
+	}
+	
+	@Test(priority=1)
+	public void pimTest() throws InterruptedException {
+		
+		pimPage=new PimPage();
+		pimPage.pim();
+				
+	}
+	
+	@Test(priority=2)
+	public void pimConfigurationTest() throws InterruptedException {
+		
+		pimPage=new PimPage();
+		pimPage.pim();
+		pimPage.pimConfiguration();
+		
+	}
+	
+	@Test(priority=3)
+	public void menuPimConfigurePimTest() throws InterruptedException {
+		
+		pimPage=new PimPage();
+		pimPage.pim();
+		pimPage.pimConfiguration();
+		
+	}
+
+}

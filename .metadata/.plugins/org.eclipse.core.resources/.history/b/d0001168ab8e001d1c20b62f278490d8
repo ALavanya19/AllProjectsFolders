@@ -1,0 +1,23 @@
+package com.exceptionsprogs;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class NullpointerExceptionExample {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		System.setProperty("webdriver.edgge.driver", ".//msedgedriver.exe");
+		WebDriver driver=new EdgeDriver();
+		
+		WebDriverWait wait=new WebDriverWait(driver, 20);
+		
+		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		
+	}
+
+}

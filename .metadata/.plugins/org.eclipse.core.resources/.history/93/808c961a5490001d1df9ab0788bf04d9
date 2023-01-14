@@ -1,0 +1,32 @@
+package com.orangehrmpages;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+public class LoginPage {
+
+	
+	//findout all elements in login page and create Object Repository
+	@FindBy(xpath="//*[@name='username']")
+	WebElement userNameE;
+	
+	@FindBy(xpath="//*[@name='password']")
+	WebElement passwordE;
+	
+	@FindBy(xpath="//*[@type='submit']")
+	WebElement submitE;
+	
+	@FindBy(xpath="oxd-text oxd-text--p orangehrm-login-forgot-header")
+	WebElement forgetYourPasswordE;
+	
+	@FindBy(xpath="//*[contains(@href,'linkedin.com')]")
+	WebElement linkedINE;
+	
+	@FindBy(xpath="//*[contains(@href,'facebook.com')]")
+	WebElement facebookE;
+	
+	@findBy(xpath="//*[contains(@href,'twitter.com')]")
+	WebElement twitterE;
+	
+	
+}

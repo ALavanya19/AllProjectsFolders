@@ -1,0 +1,156 @@
+package com.OrangeHRM;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Properties;
+
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.Test;
+
+import com.OrangeHRMApplication.BaseTest;
+
+public class AddEmpTest extends BaseTest {
+	
+	Logger addEmpLogFile=Logger.getLogger(AddEmpTest.class);
+	
+  @Test(priority=1)
+  public void LoginTest() throws IOException {
+	
+	   //Configure the Log4J file	
+		PropertyConfigurator.configure("Log4j.properties");
+	  
+		//Get the Orange HRM properties file
+		orangeHRMElementsProperties=new FileInputStream("./src/main/java/com/OrangeHRM/config/OrangeHRM_Properties.properties");
+		prop=new Properties();
+		prop.load(orangeHRMElementsProperties);
+		
+		//identify the Username and Password and pass the multiple data from excel
+		driver.findElement(By.xpath("//*[@id='"+(prop.getProperty("username")+"']"))).sendKeys("ALavanya19");
+		driver.findElement(By.xpath("//*[@id='"+(prop.getProperty("password")+"']"))).sendKeys("ALavanya@19");
+		driver.findElement(By.xpath("//*[@id='"+(prop.getProperty("loginButton")+"']"))).click();
+	     
+		addEmpLogFile.info("Navigated to Orange HRM Home Page");
+	
+  }
+
+  @Test(priority=2)
+  public void addEmp() throws IOException {
+
+	    //Get the Orange HRM properties file
+		orangeHRMElementsProperties=new FileInputStream("./src/main/java/com/OrangeHRM/config/OrangeHRM_PIM.properties");
+		prop=new Properties();
+		prop.load(orangeHRMElementsProperties);
+	  
+		//get the Add Employee Excel
+		inputDataFile=new FileInputStream("./src/main/java/com/OrangeHRMInputExcelData/OrangeHRM_AddEmpList.xlsx");
+		XSSFWorkbook workbook=new XSSFWorkbook(inputDataFile);
+		XSSFSheet sheet=workbook.getSheet("AddEmployee");	
+		int lastRow=sheet.getLastRowNum();
+		
+		
+		//Get the PIM properties
+		WebElement pimElement=driver.findElement(By.xpath("//*[@id='"+prop.getProperty("pimElement")+"']"));
+		
+		//perform mouse over operation
+		Actions action=new Actions(driver);
+		action.moveToElement(pimElement).build().perform();
+		addEmpLogFile.info("PIM Element Clicked");
+		
+		for(int row=1;row<=lastRow;row++)
+		{
+		     //Get the Add Employee Properties and Perform click operation
+		     driver.findElement(By.xpath("//*[@id='"+prop.getProperty("addEmployee")+"']")).click();
+		
+	     	//Get FirstName and Middle Name and Last Name Properties
+		    driver.findElement(By.xpath("//*[@id='"+prop.getProperty("firstName")+"']")).sendKeys(sheet.getRow(row).getCell(0).getStringCellValue());
+		    driver.findElement(By.xpath("//*[@id='"+prop.getProperty("middleName")+"']")).sendKeys(sheet.getRow(row).getCell(1).getStringCellValue());
+		    driver.findElement(By.xpath("//*[@id='"+prop.getProperty("lastName")+"']")).sendKeys(sheet.getRow(row).getCell(2).getStringCellValue());
+		    sheet.getRow(row).createCell(3).setCellValue(driver.findElement(By.xpath("//*[@id='"+prop.getProperty("empID")+"']")).getAttribute("value"));
+		
+		    driver.findElement(By.xpath("//*[@id='"+prop.getProperty("save")+"']")).click(); 
+		
+		    addEmpLogFile.info((sheet.getRow(row).getCell(0).getStringCellValue()+sheet.getRow(row).getCell(2).getStringCellValue())+"  Employee Added Successfully");
+		
+		
+		    String expected_FirstName=sheet.getRow(row).getCell(0).getStringCellValue();
+		    String expected_MiddleName=sheet.getRow(row).getCell(1).getStringCellValue();
+		    String expected_LastName=sheet.getRow(row).getCell(2).getStringCellValue();
+		
+		    String actual_FirstName=driver.findElement(By.xpath("//*[@id='"+prop.getProperty("personal_FirstName")+"']")).getAttribute("value");
+		    String actual_MiddleName=driver.findElement(By.xpath("//*[@id='"+prop.getProperty("personal_MiddleName")+"']")).getAttribute("value");
+		    String actual_LastName=driver.findElement(By.xpath("//*[@id='"+prop.getProperty("personal_LastName")+"']")).getAttribute("value");
+		
+		
+		    //validate actual FirstName and expected FirstName
+		    if(actual_FirstName.equals(expected_FirstName))
+		    {
+		    	sheet.getRow(row).createCell(4).setCellValue(actual_FirstName);
+		    	sheet.getRow(row).createCell(5).setCellValue(actual_MiddleName);
+		    	sheet.getRow(row).createCell(6).setCellValue(actual_LastName);
+			    sheet.getRow(row).createCell(7).setCellValue("PASS");
+		    }
+		    else
+		    {
+		    	sheet.getRow(row).createCell(4).setCellValue(actual_FirstName);
+		    	sheet.getRow(row).createCell(5).setCellValue(actual_MiddleName);
+		    	sheet.getRow(row).createCell(6).setCellValue(actual_LastName);
+			    sheet.getRow(row).createCell(7).setCellValue("False");
+		    }
+		    
+		    //validate actual MiddleName and expected MiddleName
+		    if(actual_MiddleName.equals(expected_FirstName))
+		    {
+		    	sheet.getRow(row).createCell(4).setCellValue(actual_FirstName);
+		    	sheet.getRow(row).createCell(5).setCellValue(actual_MiddleName);
+		    	sheet.getRow(row).createCell(6).setCellValue(actual_LastName);
+			    sheet.getRow(row).createCell(7).setCellValue("PASS");
+		    }
+		    else
+		    {
+		    	sheet.getRow(row).createCell(4).setCellValue(actual_FirstName);
+		    	sheet.getRow(row).createCell(5).setCellValue(actual_MiddleName);
+		    	sheet.getRow(row).createCell(6).setCellValue(actual_LastName);
+			    sheet.getRow(row).createCell(7).setCellValue("False");
+		    }
+		    
+		    //validate actual LastName and expected LastName
+		    if(actual_LastName.equals(expected_LastName))
+		    {
+		    	sheet.getRow(row).createCell(4).setCellValue(actual_FirstName);
+		    	sheet.getRow(row).createCell(5).setCellValue(actual_MiddleName);
+		    	sheet.getRow(row).createCell(6).setCellValue(actual_LastName);
+			    sheet.getRow(row).createCell(7).setCellValue("PASS");
+		    }
+		    else
+		    {
+		    	sheet.getRow(row).createCell(4).setCellValue(actual_FirstName);
+		    	sheet.getRow(row).createCell(5).setCellValue(actual_MiddleName);
+		    	sheet.getRow(row).createCell(6).setCellValue(actual_LastName);
+			    sheet.getRow(row).createCell(7).setCellValue("False");
+		    }
+		    
+		}
+		
+		//save the excel file
+		outPutTestResult=new FileOutputStream("./src/main/java/com/OrangeHRMOutputExcelData/OrangeHRM_AddEmpListResult.xlsx");
+		workbook.write(outPutTestResult);
+		
+		//identify the welcome admin
+		driver.findElement(By.xpath("//*[@id='"+(prop.getProperty("welcome_Admin")+"']"))).click();
+		addEmpLogFile.info("Welcome Admin Clicked");
+	       
+	    //identify the logout
+	    driver.findElement(By.linkText(prop.getProperty("logout"))).click();
+	    addEmpLogFile.info("Logout Clicked");
+			
+  }
+  
+}

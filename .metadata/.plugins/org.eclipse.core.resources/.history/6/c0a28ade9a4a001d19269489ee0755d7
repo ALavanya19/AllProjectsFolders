@@ -1,0 +1,13 @@
+package com.ConditionalOperator;
+
+public class IfelseIfExample {
+
+	public static void main(String[] args) {
+		
+		int var1=150;
+		int var2=234;
+		double var3=453.6543;
+		if(var1>var2 && var1>var3)
+	}
+	
+}

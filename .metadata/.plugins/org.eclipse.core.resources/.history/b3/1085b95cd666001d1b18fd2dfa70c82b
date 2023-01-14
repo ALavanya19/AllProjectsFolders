@@ -1,0 +1,108 @@
+package com.OrangeHRM;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.NoSuchElementException;
+import java.util.Properties;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+
+import com.OrangeHRMApplication.BaseTest;
+import com.Utility.Log;
+
+public class LoginTest extends BaseTest{
+	
+	
+	@Test
+	public void LoginTest() throws IOException, InterruptedException {
+		
+	    
+		//Get the Multple Test Data Excel
+		inputDataFile=new FileInputStream("./src/main/java/com/OrangeHRMInputExcelData/OrangeHRM_Login_MultipleTestData.xlsx");
+		workbook=new XSSFWorkbook(inputDataFile);
+		workbookSheet=workbook.getSheet("Sheet1");
+		
+		//Get the Orange HRM properties file
+		orangeHRMElementsProperties=new FileInputStream("./src/main/java/com/OrangeHRM/config/OrangeHRM_Properties.properties");
+		prop=new Properties();
+		prop.load(orangeHRMElementsProperties);
+		
+		 //Properties of Login Panel 
+		 //<div id="logInPanelHeading">LOGIN Panel</div>   
+		 //Get the Text of the Web element of LOGIN Panel 
+		 actual_OrangeHRMLoginPanelText=driver.findElement(By.id(prop.getProperty("loginPanel"))).getText();
+		        
+		      //Check the Orange HRM Login Panel Text is Matched or not   
+		       if(actual_OrangeHRMLoginPanelText.equals(prop.getProperty("expected_OrangeHRMLoginPanelText")))
+		       {
+		    	   Log.info("The Orange HRM Login 'Expected Text - LOGIN Panel 'Text is Matched - PASS");
+		       }
+		       else
+		       {
+		    	   Log.info("The Orange HRM Login 'Expected Text -LOGIN Panel' is not Matched - FAIL");
+		       }
+		       System.out.println(workbookSheet.getLastRowNum());
+		
+		for(int row=1;row<=workbookSheet.getLastRowNum();row++)//goes to every row in the excel
+		{
+  
+			 
+      		//identify the Username and Password and pass the multiple data from excel
+		    driver.findElement(By.xpath("//*[@id='"+(prop.getProperty("username")+"']"))).sendKeys(workbookSheet.getRow(row).getCell(0).getStringCellValue());
+		    driver.findElement(By.xpath("//*[@id='"+(prop.getProperty("password")+"']"))).sendKeys(workbookSheet.getRow(row).getCell(1).getStringCellValue());
+		    driver.findElement(By.xpath("//*[@id='"+(prop.getProperty("loginButton")+"']"))).click();
+		
+		
+		    //Check URL contains DashBoard or not
+		    String actual_DashboardUrl=driver.getCurrentUrl();
+		    if(actual_DashboardUrl.contains(prop.getProperty("expected_DashboardUrl")))
+		    {
+			    //copy result into excel
+			    workbookSheet.getRow(row).createCell(3).setCellValue("PASS");
+			
+			    //copy result into logfile 
+			    Log.info(workbookSheet.getRow(row).getCell(0).getStringCellValue()+" User Logged in successfully : PASS ");
+			
+			    //identify the welcome admin
+			    driver.findElement(By.xpath("//*[@id='"+(prop.getProperty("welcome_Admin")+"']"))).click();
+			    loginLogFile.info("Welcome Admin Clicked");
+		       
+		        //identify the logout
+		        driver.findElement(By.linkText(prop.getProperty("logout"))).click();
+		        loginLogFile.info("Logout Clicked");
+		    
+		    }
+		    else
+		    {
+			
+			   //copy into excel
+			   workbookSheet.getRow(row).createCell(3).setCellValue("FAIL");
+			
+			   //copy result into logfile 
+			   loginLogFile.info(workbookSheet.getRow(row).getCell(0).getStringCellValue()+" User Login Failed : FAIL");
+			
+			
+			   //taking screenshots and saving into folder
+			   //Take screenshot of WebPage
+			   File screenshot=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			   FileUtils.copyFile(screenshot, new File("./Screenshots/OrangeHrmLoginFailed/"+(workbookSheet.getRow(row).getCell(0).getStringCellValue()+workbookSheet.getRow(row).getCell(1).getStringCellValue())+ ".png"));
+			
+            }
+		 
+	    }
+		     //save the file
+		     outPutTestResult=new FileOutputStream("./src/main/java/com/OrangeHRMOutputExcelData/OrangeHRM_Login_MultipleTestDataResults.xlsx");
+		     workbook.write(outPutTestResult);	
+     }
+}

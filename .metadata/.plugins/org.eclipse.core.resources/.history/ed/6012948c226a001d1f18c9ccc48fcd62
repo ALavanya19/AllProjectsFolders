@@ -1,0 +1,32 @@
+package stepDefination;
+
+public class OrangeHRMApplicationMethods {
+
+	
+
+@Given("^user should Launch the Edge Browser$")
+public void user_should_Launch_the_Edge_Browser() throws Throwable {
+    // Write code here that turns the phrase above into concrete actions
+    throw new PendingException();
+}
+
+@When("^user enters OrangeHRM App URL address$")
+public void user_enters_OrangeHRM_App_URL_address() throws Throwable {
+    // Write code here that turns the phrase above into concrete actions
+    throw new PendingException();
+}
+
+@Then("^user should be validate the login page$")
+public void user_should_be_validate_the_login_page() throws Throwable {
+    // Write code here that turns the phrase above into concrete actions
+    throw new PendingException();
+}
+
+@Then("^user should close the OrangeHRM application$")
+public void user_should_close_the_OrangeHRM_application() throws Throwable {
+    // Write code here that turns the phrase above into concrete actions
+    throw new PendingException();
+}
+
+	
+}

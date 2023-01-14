@@ -1,0 +1,10 @@
+package com.PatternExamples;
+
+public class FebonacciSeries {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

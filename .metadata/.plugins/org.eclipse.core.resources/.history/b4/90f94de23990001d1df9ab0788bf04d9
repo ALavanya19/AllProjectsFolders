@@ -1,0 +1,23 @@
+package com.orangehrm;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Properties;
+
+public class Utilies {
+
+	public static FileInputStream propFile;
+	public static Properties prop;
+	public static void initPropFile() {
+		
+		try {
+			propFile=new FileInputStream("./src/test/java/com/propertyFile/proprty.properties");
+			prop=new Properties();
+			prop.load(propFile);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+}

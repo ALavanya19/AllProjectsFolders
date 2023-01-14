@@ -1,0 +1,54 @@
+package com.StaticExample;
+
+public class StaticMethod1 {
+
+	//1.You can call static variables in both normal and static method
+	//2.in static method you can call only static variables
+	//3.whenever you create object/instance an class then that time only it will create memory location
+	//4.you cannot method using this and super bcoz you not creating object for class
+	//5.you can call static method using a.classname.methodname and b.object.methodname prefer only a option
+	//6.you can call static method directly in static method r normal method
+	//7.static variable can create memory location at once only
+	
+	
+	int a=10;
+	static int b=20,c=30;
+	
+	public void method1() {
+
+		a++;
+		b++;
+		System.out.println("Method1 "); 
+		System.out.println("Normal Variable "+a+" Static Variable "+b); //normal and static variable can access in normal method
+	}
+
+	
+	public static void staticMethod1() {
+		
+		b++;
+		System.out.println("Static Method1");
+		System.out.println(" Static Variable "+b);  //only static variable can access in static method canot access normal variables
+	}
+	public static void staticMethod2() {
+		
+	
+		b++;
+		c++;
+		System.out.println("Static Method2");
+		System.out.println(" Static Variable "+b);
+		System.out.println(" Static Variable "+c);  //only static variable can access in static method canot access normal variables
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		StaticMethod1 s1=new StaticMethod1();   //you caanot access normal method without creating an object
+	
+		s1.method1();
+		//s1.staticMethod1();   //you can access static method in by creating variable or with class name prefer by calling class name
+		StaticMethod1.staticMethod2();
+		
+		
+	}
+
+}

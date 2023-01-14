@@ -1,0 +1,11 @@
+Feature: OrangeHRM Application Functinality Test
+Background: 
+Given user should Launch the Edge Browser
+
+@OrangeHRMnavigation
+Scenario: Validating OrangeHRM Login Page
+
+When user enters OrangeHRM App URL address
+Then user should be validate the login page
+Then user should close the OrangeHRM application
+

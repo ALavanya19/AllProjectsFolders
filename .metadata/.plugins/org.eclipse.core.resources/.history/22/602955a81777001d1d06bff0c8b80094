@@ -1,0 +1,18 @@
+package com.thiskeyword;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeMethod;
+
+public class BaseTest {
+	
+	public static WebDriver driver;
+	public String url="https://facebook.com";
+	
+	@BeforeMethod
+	public void setUp() {
+		
+		driver=new ChromeDriver();
+	}
+
+}

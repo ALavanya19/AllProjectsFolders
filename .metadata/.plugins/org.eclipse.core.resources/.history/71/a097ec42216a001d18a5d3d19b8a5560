@@ -1,0 +1,4 @@
+Feature: OrangeHRM Application Functinality Test
+Scenario: Validating OrangeHRM Login Page
+
+Given user should Launch the OrangeHRM Application in Edge Browser

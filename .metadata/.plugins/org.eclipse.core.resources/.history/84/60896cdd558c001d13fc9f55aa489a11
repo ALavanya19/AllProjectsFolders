@@ -1,0 +1,12 @@
+package com.seleniumpractice;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+
+import com.logs.Log;
+
+public class BaseTest {
+
+    public FileInputStream PropFile;
+		
+}

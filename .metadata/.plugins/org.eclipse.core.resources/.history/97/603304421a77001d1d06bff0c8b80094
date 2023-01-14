@@ -1,0 +1,13 @@
+package com.thiskeyword;
+
+import org.openqa.selenium.support.PageFactory;
+
+public class LoginPage extends BaseTest {
+	
+	
+	LoginPage(){
+		//PageFactory.initElements(driver,this);
+		PageFactory.initElements(driver);
+	}
+
+}

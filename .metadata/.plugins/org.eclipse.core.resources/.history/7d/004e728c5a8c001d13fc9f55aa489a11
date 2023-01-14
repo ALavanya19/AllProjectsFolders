@@ -1,0 +1,11 @@
+package com.seleniumpractice;
+
+import java.io.IOException;
+
+import com.seleniumpractice.BaseTest;
+public class MercuryRegistrationWithExcelData extends BaseTest{
+
+	
+	
+
+}

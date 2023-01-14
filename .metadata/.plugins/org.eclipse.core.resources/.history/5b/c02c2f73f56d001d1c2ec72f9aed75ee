@@ -1,0 +1,81 @@
+package com.OrangeHRM;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.Test;
+
+import com.OrangeHRMApplication.BaseTest;
+import com.Utility.Log;
+
+public class AdminUserManagementTest extends BaseTest {
+
+	@Test(priority=1)
+	  public void LoginTest() throws IOException {
+	 
+			//Get the Orange HRM properties file
+			orangeHRMElementsProperties=new FileInputStream("./src/main/java/com/OrangeHRM/config/OrangeHRM_Properties.properties");
+			prop=new Properties();
+			prop.load(orangeHRMElementsProperties);
+			
+			//identify the Username and Password and pass the multiple data from excel
+			driver.findElement(By.xpath("//*[@id='"+(prop.getProperty("username")+"']"))).sendKeys("ALavanya19");
+			driver.findElement(By.xpath("//*[@id='"+(prop.getProperty("password")+"']"))).sendKeys("ALavanya@19");
+			driver.findElement(By.xpath("//*[@id='"+(prop.getProperty("loginButton")+"']"))).click();
+		     
+			Log.info("Navigated to Orange HRM Home Page");
+		
+	  }
+    @Test(priority=2)
+    public void adminUserManagementUsersTest() {
+    	
+    	try {
+			orangeHRMAdminProperties=new FileInputStream("./src/main/java/com/OrangeHRM/config/OrangeHRM_Admin.properties");
+			prop=new Properties();
+			prop.load(orangeHRMAdminProperties);
+		} 
+    	catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+         catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    	
+    	//Go to Admin Tab
+    	WebElement adminE=driver.findElement(By.xpath("//*[@id='"+prop.getProperty("adminP")+"']"));
+    	
+    	
+    	Actions action=new Actions(driver);
+    	action.moveToElement(adminE).perform();
+    	
+    	WebElement userManagementE=driver.findElement(By.xpath("//*[@id='"+prop.getProperty("adminUserManagementP")+"']"));
+    	WebElement userManagementUsersE=driver.findElement(By.xpath("//*[@id='"+prop.getProperty("adminUserManagementUsersP")+"']"));
+    	
+    	action.moveToElement(userManagementE).perform();
+    	action.moveToElement(userManagementUsersE).perform();
+    	
+    	
+    	String actual_usersSystemUsersUsernameText=driver.findElement(By.xpath("//*[@for='"+prop.getProperty("usersSystemUsersUsernameTextP")+"']")).getText();
+    	if(actual_usersSystemUsersUsernameText.equals(prop.getProperty("expected_usersSystemUsersUsernameText")))
+    	{
+    		Log.info("Valid Username Text");
+    	}
+    	else
+    	{
+    		Log.info("Invalid Username Text");
+    	}
+    	
+    	driver.findElement(By.xpath("//*[@name='"+prop.getProperty("usersSystemUsersUsernameP")+"']"));
+    	
+    }
+	
+	
+}

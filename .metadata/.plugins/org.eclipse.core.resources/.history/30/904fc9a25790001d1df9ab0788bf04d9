@@ -1,0 +1,10 @@
+package com.orangehrmpages;
+
+import com.orangehrm.Base;
+
+public class ResetPasswordPage extends Base {
+
+	@FindBy(xpath="//*[@name='username']")
+	WebElement usernameE;
+	
+}

@@ -1,0 +1,12 @@
+package com.seleniumpractice;
+
+import com.config.PropertyConfig;
+import com.logs.Log;
+
+public class BaseTest {
+
+     
+		
+		
+		
+}

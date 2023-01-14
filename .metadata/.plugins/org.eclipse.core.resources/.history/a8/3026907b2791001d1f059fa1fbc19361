@@ -1,0 +1,119 @@
+package com.orangehrm;
+
+import java.io.IOException;
+
+import org.testng.Assert;
+
+import com.orangehrmpages.LoginPage;
+import com.orangehrm.Reports;
+
+public class LoginPageTest extends Base{
+
+	LoginPage loginPage;
+	public LoginPageTest() {
+		super();
+	}
+	
+	public void setUp() throws IOException {
+		
+	    loginPage=new LoginPage();
+
+	}
+	
+	public void orangeHrmLogoTopTest()
+	{
+		Reports.logger=Reports.report.createTest("LoginPage orangeHrmLogoTopTest");
+		Reports.logger.info("Validating Login Page orangeHRMLogo on Top");
+		boolean orangeHrmLogoTopImageStatus=loginPage.orangeHrmLogoTop();
+		Assert.assertTrue(orangeHrmLogoTopImageStatus);
+		Reports.logger.pass("Login Page orangeHRMLogo validation successfull");
+		Logs.info("Login Page orangeHRM Logo validation successfull");
+	}
+	
+	public void hrForAllLogoRightTest() {
+		
+		Reports.logger=Reports.report.createTest("LoginPage hrForAllLogoRightTest");
+		Reports.logger.info("Validating Login Page hrForAllLogo on Right");
+		boolean orangeHrmLogoTopImageStatus=loginPage.hrForAllLogoRight();
+		Assert.assertTrue(orangeHrmLogoTopImageStatus);
+		Reports.logger.pass("Login Page hrForAllLogo validation successfull");
+		Logs.info("Login Page hrForAllLogo Logo validation successfull");
+		
+	}
+	
+	public void LoginTest() throws IOException {
+		Reports.logger=Reports.report.createTest("LoginPage Test");
+		Reports.logger.info("Validating Login Page Login");
+		loginPage.Login(Utilies.readPropFileData("username"), Utilies.readPropFileData("password"));
+	    String url=driver.getCurrentUrl();
+	    if(url.contains("dashboard"))
+	    {
+	    	Reports.logger.pass("User Login Successful");
+	    	Logs.info("User Login Successfull - PASS");
+	    }
+	    else
+	    {
+	    	Reports.logger.pass("User Login Unsuccessful");
+	    	Logs.info("User Login Unsccessfull - FAIL");
+	    }
+	   
+	}
+	
+	public void LoginMultipleTestData() throws IOException {
+		
+		Reports.logger=Reports.report.createTest("LoginPage multiple TestData");
+		Reports.logger.info("Validating Login Page Multiple Login");
+		Object[][] data=DataAccess.readTestDataExcelFile();
+		
+		for(int row=1;row<data.length;row++)
+		{
+				String username=data[row][0].toString();
+				String password=data[row][1].toString();
+				loginPage.Login(username, password);
+		}
+		
+	    String url=driver.getCurrentUrl();
+	    if(url.contains("dashboard"))
+	    {
+	    	Reports.logger.pass("User Login Successful");
+	    	Logs.info("User Login Successfull - PASS");
+	    }
+	    else
+	    {
+	    	Reports.logger.pass("User Login Unsuccessful");
+	    	Logs.info("User Login Unsccessfull - FAIL");
+	    }
+		
+	}
+	
+	public void forgetPasswordTest() {
+		
+		Reports.logger=Reports.report.createTest("Login ForgetPassword Test");
+		Reports.logger.info("Validating Login Page forget Password Link");
+		loginPage.forgetPassword();
+		Reports.logger.pass("Validating ForgetPassword Link Successfully");
+		Logs.info("Validating ForgetPassword Link Successfully");
+		
+	}
+	
+	public void validatingLoginTitleTest() {
+		
+		Reports.logger=Reports.report.createTest("Login Page Title Test");
+		Reports.logger.info("Validating Login Page Title");
+		String actual_Title=loginPage.validatingLoginTitle();
+		
+		if(actual_Title.equals("OrangeHRM"))
+		{
+			Reports.logger.pass("Login Page Title Matched Successfully");
+	    	Logs.info("Login Page Title matched Successfull - PASS");
+	    }
+	    else
+	    {
+	    	Reports.logger.pass("Login Page Title not Matched Unsuccessfully");
+	    	Logs.info("Login Page Title Matched Successfully Unsccessfull - FAIL");
+	    }
+		
+	}
+	
+	
+}

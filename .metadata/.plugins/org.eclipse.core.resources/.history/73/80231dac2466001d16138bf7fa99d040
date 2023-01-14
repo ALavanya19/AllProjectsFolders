@@ -1,0 +1,12 @@
+package com.Utility;
+
+
+public class Logg {
+	
+	Logger logg=Logger.getLogger()
+   public static void info(String message) {
+	   
+	   
+   }
+
+}

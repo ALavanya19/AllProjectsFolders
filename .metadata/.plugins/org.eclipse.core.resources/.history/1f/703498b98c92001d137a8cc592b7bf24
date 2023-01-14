@@ -1,0 +1,13 @@
+package com.StaticExample;
+
+public class StaticMethod3 extends StaticMethod2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		StaticMethod2 s1=new StaticMethod2();
+		StaticMethod2 s1=new StaticMethod2(10);
+		
+	}
+
+}

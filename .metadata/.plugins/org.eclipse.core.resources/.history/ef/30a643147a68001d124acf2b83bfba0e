@@ -1,0 +1,66 @@
+package com.OrangeHRMTestCases;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+
+import org.apache.log4j.Logger;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import com.OrangeHRMAppPages.DashBoardPage;
+import com.OrangeHRMAppPages.LoginPage;
+import com.OrangeHRMBaseTest.BaseTest;
+import com.Properties.PropertiesClass;
+import com.Utility.Log;
+
+public class DashboardPageTest extends BaseTest {
+
+	DashboardPageTest dashBoardPageTest;
+	
+	
+	
+	@BeforeMethod
+	public void LoginTest() {
+		
+		loginPage=new LoginPage();
+		dashboardPage=new DashBoardPage();
+		
+		loginPage.login("ALavanya19","ALavanya@19");
+			
+	}
+	
+	@AfterMethod
+	public void closeTest() {
+		
+		dashboardPage=new DashBoardPage();
+		dashboardPage.welcomeAdmin();
+		dashboardPage.logout();
+	}
+	
+	@Test(priority=2)
+	public void dashboardOhrmLogoTest() {
+  
+	
+		dashboardPage=new DashBoardPage();
+		dashboardPage.dashboardOhrmLogo();
+		Log.info("DashBoard Logo Varification Successfull");
+		
+	}
+	
+	@Test(priority=3)
+	public void headerMenuTest() {
+  
+	
+		dashboardPage=new DashBoardPage();
+		dashboardPage.headerMenu();
+		
+	}
+	
+    public void assignLeaveTest() {
+    	
+    }
+	
+	
+}

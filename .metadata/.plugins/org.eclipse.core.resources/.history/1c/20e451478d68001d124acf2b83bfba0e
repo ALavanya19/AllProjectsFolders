@@ -1,0 +1,14 @@
+package com.TestNGAnnotations;
+
+import org.testng.annotations.BeforeMethod;
+
+public class TestNGExample2 extends TestNGExample1 {
+	
+	@BeforeMethod
+	public void beforeMethodex2() {
+		
+		System.out.println("Before Method executed");
+	}
+	
+
+}

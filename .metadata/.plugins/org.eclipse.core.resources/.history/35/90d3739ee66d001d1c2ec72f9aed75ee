@@ -1,0 +1,7 @@
+package com.Utility;
+
+import com.OrangeHRMApplication.BaseTest;
+
+public class ProprtiesClass extends BaseTest {
+
+}

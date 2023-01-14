@@ -1,0 +1,43 @@
+package com.StaticExample;
+
+public class StaticMethod3 extends StaticMethod2 {
+
+	
+	public void m1() {
+		a++;
+		b++;
+		System.out.println(a);
+		System.out.println(b);
+	}
+	
+	public static void m2() {
+		
+		//a++;
+		b++;
+		//System.out.println(a);
+		System.out.println(b);
+		
+	}
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		
+		StaticMethod2 s1=new StaticMethod2();
+		s1.m1();
+		s1.m1(10);
+		s1.m1();
+		StaticMethod2 s2=new StaticMethod2();
+		s1.m1(20);
+		s1.m1();
+		
+		StaticMethod2 s3=new StaticMethod3();
+		
+		StaticMethod2.m2();
+		StaticMethod2.m2(30);
+		
+	}
+
+}

@@ -1,0 +1,12 @@
+package com.orangehrm;
+
+import org.apache.log4j.Logger;
+
+public class Logs {
+	
+	Logger logg=Logger.getLogger(Logs.class);
+	public static void info(String message) {
+		
+	}
+
+}

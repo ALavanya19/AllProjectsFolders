@@ -1,0 +1,16 @@
+<suite name="OrangeHRMApplication">
+  <test name="LoginTest">
+   <classes>
+    <class name="com.OrangeHRMTestNG.OrangeHRM_TestNG_Login"/>
+   </classes>
+  </test>
+  <test name="AddEmployeeTest">
+  <parameter name="Username" value="ALavanya19"/>
+  <parameter name="Password" value="ALavanya@19"/>
+   <classes>
+    <class name="com.OrangeHRMTestNG.OrangeHRM_AddEmployee"/>
+   </classes>
+  </test>
+
+</suite>
+  

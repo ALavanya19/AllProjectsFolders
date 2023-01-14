@@ -1,0 +1,33 @@
+package com.Inheritance;
+
+public class InteritanceMain extends InheritanceEx1 {
+
+	
+	public void m1() {
+		System.out.println("Main M1 Method");
+	}
+		
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	/*	
+		InheritanceEx1 a=new InheritanceEx1();
+		
+       String data=a.m1();
+       System.out.println(data);
+       System.out.println(a.m1());   */
+	
+		
+		
+		InheritanceEx2 e=new InheritanceEx1();
+		
+	    e.m1();
+	    
+		
+		
+		
+		
+		
+	}
+
+}

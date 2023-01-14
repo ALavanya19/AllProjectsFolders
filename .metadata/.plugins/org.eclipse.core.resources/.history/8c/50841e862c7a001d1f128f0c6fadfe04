@@ -1,0 +1,14 @@
+package com.BrokenLinks;
+
+import org.openqa.selenium.WebDriver;
+
+public class BrokenLinks {
+
+	public static void main(String[] args) {
+		
+		String applicationUrl="https://demoqa.com/broken";
+		WebDriver driver;
+		
+	}
+
+}

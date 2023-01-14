@@ -1,0 +1,99 @@
+package com.seleniumpractice;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+
+import com.logs.Log;
+
+import junit.framework.Assert;
+
+public class DropDownSorting extends BaseTest {
+	
+	//applicationUrl=https://testautomationpractice.blogspot.com/
+	
+	@Test(priority=2)
+	public void animalDropDownSorting() {
+		
+		//Select Animal Dropdown element
+		List<WebElement>animalDropDown=driver.findElements(By.xpath("//select[@name='animals']/option"));
+		
+		
+		ArrayList<String>originalList=new ArrayList<String>();
+		ArrayList<String>tempList=new ArrayList<String>();
+		
+		//Get all elements into arraylist
+		for(WebElement s:animalDropDown)
+		{
+			originalList.add(s.getText());
+			tempList.add(s.getText());
+		}
+		
+		System.out.println("Before Sorting DropDown original List: "+originalList);
+		System.out.println("Before Sorting DropDown temp List: "+tempList);
+		
+		Collections.sort(tempList);
+		
+		System.out.println("After Sorting DropDown original List: "+originalList);
+		System.out.println("After Sorting DropDown temp List: "+tempList);
+		
+		
+		//Use SoftAssert for if Assertion fail also will execute next statements
+		
+		/*SoftAssert soft=new SoftAssert();
+		soft.assertEquals(originalList, tempList, "Drop Down is not sorted");
+		soft.assertAll();*/
+		
+		
+		if(originalList.equals(tempList))
+		{
+			Log.info("Select Animal Drop Down is Sorted");
+		}
+		else
+		{
+			Log.info("Select Animal Drop Down is not Sorted");
+		}
+		
+		
+	}
+	
+	@Test(priority=1)
+	public void speedDropDown() {
+		
+		//Find select a speed drop down element
+		List<WebElement>speedDropDown=driver.findElements(By.xpath("//select[@name='speed']/option"));
+		
+		//Create original arraylist and temp arraylist
+		ArrayList<String> originalList=new ArrayList<String>();
+		ArrayList<String> tempList=new ArrayList<String>();
+		
+		for(WebElement e:speedDropDown)
+		{
+			originalList.add(e.getText());
+			tempList.add(e.getText());
+		}
+		
+		System.out.println("Before Sorting DropDown original List: "+originalList);
+		System.out.println("Before Sorting DropDown temp List: "+tempList);
+		
+		Collections.sort(tempList);
+		
+		System.out.println("After Sorting DropDown original List: "+originalList);
+		System.out.println("After Sorting DropDown temp List: "+tempList);
+
+		if(originalList.equals(tempList))
+		{
+			Log.info("Select Speed Drop Down is Sorted");
+		}
+		else
+		{
+			Log.info("Select Speed Drop Down is not Sorted");
+		}
+		
+	}
+
+}

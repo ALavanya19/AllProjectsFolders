@@ -1,0 +1,10 @@
+package com.annotations;
+
+public class Eample2 extends Eample1 {
+
+	@Test
+	public void Test() {
+		
+	}
+	
+}

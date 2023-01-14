@@ -1,0 +1,20 @@
+browserName=opera
+applicationUrlAddress=http://127.0.0.1/orangehrm-4.2.0.1/symfony/web/index.php/auth/login
+
+expected_OrangeHRMTitle=OrangeHRM
+expected_OrangeHRMUrlAddress=orangehrm-4.2.0.1
+expected_OrangeHRMLoginPanelText=LOGIN Panel
+
+
+loginPanel=logInPanelHeading
+
+expected_DashboardUrl=dashboard
+
+
+username=txtUsername
+Password=txtPassword
+LoginButton=btnLogin
+
+
+welcome_Admin=welcome
+Logout=Logout

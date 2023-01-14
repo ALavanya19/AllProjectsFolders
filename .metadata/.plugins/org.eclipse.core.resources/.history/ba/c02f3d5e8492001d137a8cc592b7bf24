@@ -1,0 +1,29 @@
+package com.StaticExample;
+
+public class StaticVariableColleageExample {
+
+	String SName;
+	static int rollno;
+	static String collegeName;
+	
+	public void enroll(String Sname) {
+		
+		
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		
+		 void enroll() {
+			
+			
+			
+			
+		}
+
+	}
+
+}

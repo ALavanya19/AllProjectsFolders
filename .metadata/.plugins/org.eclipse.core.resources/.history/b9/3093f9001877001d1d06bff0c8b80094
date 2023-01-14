@@ -1,0 +1,8 @@
+package com.thiskeyword;
+
+public class LoginPage extends BaseTest {
+	
+	
+	
+
+}

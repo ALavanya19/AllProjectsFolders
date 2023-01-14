@@ -1,0 +1,48 @@
+package com.DummyExcel;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class MultipleData {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		
+		//Locate the file
+		FileInputStream file=new FileInputStream("./src/com/DummyExcel/excel.xlsx");
+		
+		//Workbook in the file
+		XSSFWorkbook workbook=new XSSFWorkbook(file);
+		
+		//Sheet in the workbook
+		XSSFSheet sheet=workbook.getSheet("Sheet1");
+		
+		System.out.println(sheet.getLastRowNum());
+		//Go to every row and get cells
+		for(int row=0;row<sheet.getLastRowNum();row++)
+		{
+			Row row1=sheet.getRow(row);
+			for(int cell=0;cell<row1.getLastCellNum();cell++) {
+				
+				String data=row1.getCell(cell).getStringCellValue();
+				System.out.print(data+" ");
+			}
+			System.out.println(" ");
+			
+			
+		}
+		
+		sheet.getRow(1);
+		sheet.getRow(2);
+		sheet.getRow(3);
+		sheet.getRow(4);
+		
+
+	}
+
+}

@@ -1,0 +1,20 @@
+package com.orangehrm;
+
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+
+public class Reports {
+	
+	public static ExtentReports report;
+	public static ExtentTest logger;
+	
+	public void setUpExtentReports() {
+		
+		ExtentHtmlReporter extent=new ExtentHtmlReporter("./Reports/ExtentReports.html");
+		report=new ExtentReports();
+		report.attachReporter(extent);
+		
+	}
+
+}

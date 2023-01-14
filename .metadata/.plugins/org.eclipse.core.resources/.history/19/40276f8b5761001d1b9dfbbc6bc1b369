@@ -1,0 +1,18 @@
+package com.OrangeHRMTestNG;
+
+import org.testng.annotations.Test;
+
+import com.OrangeHRM.OrangeHRM_BaseTest;
+
+public class OrangeHRM_TestNG_Login extends OrangeHRM_BaseTest{
+	
+	
+	@Test(priority=1)
+	public void loginTest() {
+		
+		
+	}
+	
+	
+
+}

@@ -1,0 +1,7 @@
+package com.annotations;
+
+public class Eample2 extends Eample1 {
+
+	
+	
+}

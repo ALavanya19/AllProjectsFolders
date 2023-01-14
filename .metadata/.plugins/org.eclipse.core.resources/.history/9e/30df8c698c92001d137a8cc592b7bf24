@@ -1,0 +1,33 @@
+package com.StaticExample;
+
+public class StaticMethod2 {
+
+	int a=2;
+	static int b=1;
+	public void m1() {
+		a++;
+		b++;
+		System.out.println(a);
+		System.out.println(b);
+	}
+	
+	public void m1(int c,int d)
+	{
+		a++;
+	    b=c;
+	    System.out.println(a);
+	    System.out.println(b);
+		
+	}
+	
+	public static void m2() {
+		
+		a++;
+		b++;
+	}
+	
+	
+	
+	
+	
+}

@@ -1,0 +1,78 @@
+package com.orangehrmpages;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class LoginPage extends Base {
+
+	//initize driver to this class
+	LoginPage(){
+		PageFactory.initElements(driver,this);
+	}
+	
+	//findout all elements in login page and create Object Repository
+	@FindBy(xpath="//*[@name='username']")
+	WebElement userNameE;
+	
+	@FindBy(xpath="//*[@name='password']")
+	WebElement passwordE;
+	
+	@FindBy(xpath="//*[@type='submit']")
+	WebElement submitE;
+	
+	@FindBy(xpath="oxd-text oxd-text--p orangehrm-login-forgot-header")
+	WebElement forgetYourPasswordE;
+	
+	@FindBy(xpath="//a[contains(@href,'orangehrm.com')]")
+	WebElement ornageHrmIncE;
+	
+	@FindBy(xpath="//*[contains(@href,'linkedin.com')]")
+	WebElement linkedINE;
+	
+	@FindBy(xpath="//*[contains(@href,'facebook.com')]")
+	WebElement facebookE;
+	
+	@FindBy(xpath="//*[contains(@href,'twitter.com')]")
+	WebElement twitterE;
+	
+	@FindBy(xpath="//*[contains(@href,'youtube.com')]")
+	WebElement youTubeE;
+	
+	@FindBy(xpath="//div[@class='orangehrm-login-logo']/img[@alt='orangehrm-logo']")
+	WebElement hrForAllLogoRightE;
+	
+	@FindBy(xpath="//*[@alt='company-branding']")
+	WebElement ornageHrmLogoTopE;
+	
+	
+	//Business Logic
+	public boolean orangeHrmLogoTop() {
+		
+		return ornageHrmLogoTopE.isDisplayed();
+	}
+	
+	public boolean heForAllLogoRight() {
+		return hrForAllLogoRightE.isDisplayed();
+	}
+
+    public HomePage Login(String username,String password) {
+    	
+    	userNameE.sendKeys(username);
+    	passwordE.sendKeys(password);
+    	submitE.click();
+    	return new HomePage();
+    	
+    }
+	public ResetPasswordPage forgetPassword() {
+		
+		forgetYourPasswordE.click();
+		return new ResetPasswordPage();
+	}
+	
+	public String validatingLoginTitle() {
+		
+		return driver.getTitle();
+	}
+    
+}

@@ -1,0 +1,4 @@
+adminP=menu_admin_viewAdminModule
+
+adminUserManagement=menu_admin_UserManagement
+adminUserManagementUsers=menu_admin_viewSystemUsers

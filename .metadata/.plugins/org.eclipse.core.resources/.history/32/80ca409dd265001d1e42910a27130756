@@ -1,0 +1,136 @@
+package com.OrangeHRMApplication;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Properties;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.opera.OperaDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+
+public class BaseTest {
+
+	
+	public WebDriver driver;
+	
+	public String actual_OrangeHRMTitle;
+	public String actual_OrangeHRMUrlAddress;
+	public String actual_OrangeHRMLoginPanelText;
+	
+	
+	
+	public FileInputStream orangeHRMElementsProperties;
+	public Properties prop;
+	
+	public FileInputStream inputDataFile;
+	public XSSFWorkbook workbook;
+	public XSSFSheet workbookSheet;
+	public FileOutputStream outPutTestResult;
+	
+	
+	
+	Logger log=Logger.getLogger(BaseTest.class);
+	
+	@BeforeTest
+	public void setUp() throws IOException{
+	
+	
+		//Get the Orange HRM properties file
+		orangeHRMElementsProperties=new FileInputStream("./src/main/java/com/OrangeHRM/config/OrangeHRM_Properties.properties");
+		prop=new Properties();
+		prop.load(orangeHRMElementsProperties);
+		
+		
+		//Get the Validation Excel file
+		
+		//Configure the Log4j files
+		PropertyConfigurator.configure("Log4j.properties");
+		
+		
+		//set the Properites of Browsers
+		if(prop.getProperty("browserName").equals("chrome"))
+		{
+			//identify the chrome browser interface and Lunch the browser
+			System.setProperty("webdriver.chrome.driver", "./DriverFiles/chromedriver.exe");
+			driver=new ChromeDriver();
+			log.info("Chorme Browser Lunched Successfully");
+		}
+		else if(prop.getProperty("browserName").equals("opera"))
+		{
+			//identify the opera browser interface and Lunch the browser
+			System.setProperty("webdriver.opera.driver", "./NewDriverFiles/operadriver.exe");
+			driver=new OperaDriver();
+			log.info("Opera Browser Lunched Successfully");
+		}
+		else if(prop.getProperty("browserName").equals("edge"))
+		{
+			//identify the edge browser interface and Lunch the browser
+			System.setProperty("webdriver.edge.driver", "./DriverFiles/msedgedriver.exe");
+			driver=new EdgeDriver();
+			log.info("Edge Browser Lunched Successfully");
+		}
+		else if(prop.getProperty("browserName").equals("firefox"))
+		{
+			//identify the firefox browser interface and Lunch the browser
+			System.setProperty("webdriver.gecko.driver", "./DriverFiles/geckodriver.exe");
+			driver=new FirefoxDriver();
+		    log.info("Firefox Browser Lunched Successfully");
+		}
+			
+		
+		driver.get(prop.getProperty("applicationUrlAddress"));
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
+		
+	    log.info("Navigated to Orange HRM Login Page Application");
+	       
+	    //get the Title of Orange HRM application
+	    actual_OrangeHRMTitle=driver.getTitle();
+		
+		  //check expected and actual results same or not
+	       if(actual_OrangeHRMTitle.equals(prop.getProperty("expected_OrangeHRMTitle")))
+	       {
+	    	   log.info("The 'Expected Title-OrangeHRM' of Orange HRM application Matched - PASS ");
+	    	   
+	       }
+	       else
+	       {
+	    	   log.info("The 'Expected Title-OrangeHRM' of Orange HRM application not Matched - Fail ");
+	       }
+	       
+	    //get the Orange HRM current Url
+	    actual_OrangeHRMUrlAddress=driver.getCurrentUrl();
+	       
+	       //Check the Orange HRm contains Expected URl address or not   
+	       if(actual_OrangeHRMUrlAddress.contains(prop.getProperty("expected_OrangeHRMUrlAddress")))
+	       {
+	    	   log.info("The Orange HRM actual URL application contains orangehrm-4.2.0.1 - PASS ");
+	       }
+	       else
+	       {
+	    	   log.info("The Ornage HRM actual URL application not contains orangehrm-4.2.0.1 - FAIL");
+	       }
+	         		
+	}
+	
+	@AfterTest
+	public void tearDown() {
+		//Close the browser
+	//	driver.quit();
+		//log.info("Browser Closed Successfully");
+	}
+	
+}

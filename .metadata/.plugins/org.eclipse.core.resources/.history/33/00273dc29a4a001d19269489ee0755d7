@@ -1,0 +1,11 @@
+package com.ConditionalOperator;
+
+public class IfelseIfExample {
+
+	public static void main(String[] args) {
+		
+		int var1=150;
+		
+	}
+	
+}

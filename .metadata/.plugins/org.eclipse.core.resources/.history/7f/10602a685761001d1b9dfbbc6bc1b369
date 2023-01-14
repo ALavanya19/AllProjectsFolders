@@ -1,0 +1,12 @@
+package com.OrangeHRMTestNG;
+
+import com.OrangeHRM.OrangeHRM_BaseTest;
+
+public class OrangeHRM_TestNG_Login extends OrangeHRM_BaseTest{
+	
+	
+	
+	
+	
+
+}

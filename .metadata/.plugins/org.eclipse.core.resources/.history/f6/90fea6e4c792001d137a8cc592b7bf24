@@ -1,0 +1,9 @@
+package com.AbstractEx;
+
+public abstract class A {
+
+	abstract void m1();
+	
+	
+	
+}

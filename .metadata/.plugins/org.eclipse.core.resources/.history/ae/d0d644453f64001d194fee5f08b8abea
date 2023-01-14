@@ -1,0 +1,55 @@
+package com.OrangeHRM;
+
+import org.openqa.selenium.Platform;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
+
+public class OrangeHRM_BaseTest {
+
+	
+	WebDriver driver;
+	
+	
+	@Parameters("Browser")
+	@BeforeTest
+	public void orangeHRMApplicationLunch(String browserName) {
+		
+		System.out.println("Browser Name : "+browserName);
+		
+		DesiredCapabilities cap=null;
+		if(browserName.equalsIgnoreCase("chrome"))
+		{
+			cap=DesiredCapabilities.chrome();
+			cap.setBrowserName("chrome");
+			cap.setPlatform(Platform.WINDOWS);
+		}
+		else if(browserName.equalsIgnoreCase("edge")) 
+		{
+		    cap=DesiredCapabilities.edge();
+		    cap.setBrowserName("edge");
+		    cap.setPlatform("");
+		}
+		
+		
+		  String orangeHRMApplicationUrlAddress="http://127.0.0.1/orangehrm-4.2.0.1/symfony/web/index.php/auth/login";
+	      System.setProperty("webdriver.edge.driver", "./driverFiles/msedgedriver.exe");
+	      
+		//  driver=new ChromeDriver();
+	      driver=new EdgeDriver();
+          driver.manage().window().maximize();
+	      driver.get(orangeHRMApplicationUrlAddress);      
+	}
+
+	@AfterTest
+	public void orangeHRMapplicationClose() {
+		
+		driver.quit();
+	}
+	
+	
+}

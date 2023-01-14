@@ -1,0 +1,16 @@
+package com.orangehrm;
+
+import java.io.FileInputStream;
+
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class DataAccess {
+
+	
+	public static FileInputStream multipleTestDataFile;
+	public static XSSFWorkbook workbook;
+	public static XSSFSheet sheet;
+	
+	
+}

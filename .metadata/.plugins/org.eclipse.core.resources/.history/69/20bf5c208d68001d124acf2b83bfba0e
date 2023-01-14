@@ -1,0 +1,7 @@
+package com.TestNGAnnotations;
+
+public class TestNGExample2 extends TestNGExample1 {
+	
+	@BeforeTest
+
+}

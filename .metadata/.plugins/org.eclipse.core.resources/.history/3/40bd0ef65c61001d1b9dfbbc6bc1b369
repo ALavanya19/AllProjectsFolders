@@ -1,0 +1,5 @@
+package com.OrangeHRMTestNG;
+
+public class OrangeHRM_AddEmployee extends OrangeHRM_TestNG_Login {
+
+}

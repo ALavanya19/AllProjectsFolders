@@ -1,0 +1,25 @@
+package com.seleniumpractice;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import com.logs.Log;
+
+public class BaseTest {
+
+	//Properties File info
+    public FileInputStream propFile;
+    public Properties prop;
+    
+    //TestData file info
+    public FileInputStream testDataFile;
+    public XSSFWorkbook workbook;
+    public XSSFSheet sheet;
+    
+    
+		
+}

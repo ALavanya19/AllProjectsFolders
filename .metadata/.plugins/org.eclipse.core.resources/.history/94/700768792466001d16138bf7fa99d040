@@ -1,0 +1,10 @@
+package com.Utility;
+
+import org.apache.log4j.Logger;
+
+import com.OrangeHRMApplication.BaseTest;
+public class Logger {
+	
+	Logger log=Logger.getLogger(BaseTest.class);
+
+}

@@ -1,0 +1,19 @@
+<suite name="OrangeHRMApplication">
+  <test name="onchrome">
+  <parameter name="Browser" value="chrome"/>
+   <classes>
+    <class name="com.OrangeHRMTestNG.OrangeHRM_TestNG_Login"/>
+   </classes>
+  </test>
+  <test name="AddEmployeeTest">
+   <classes>
+    <class name="com.OrangeHRMTestNG.OrangeHRM_AddEmployee"/>
+   </classes>
+  </test>
+  <test name="EmpListExcelTest">
+   <classes>
+    <class name="com.OrangeHRMTestNG.OrangeHRM_EmployeeListintoExcel"/>
+   </classes>
+  </test>
+</suite>
+  

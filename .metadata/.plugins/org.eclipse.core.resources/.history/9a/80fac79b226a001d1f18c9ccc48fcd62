@@ -1,0 +1,35 @@
+package stepDefination;
+
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+
+public class OrangeHRMApplicationMethods {
+
+	
+
+@Given("^user should Launch the Edge Browser$")
+public void user_should_Launch_the_Edge_Browser()  {
+	
+	WebDriver driver;
+	
+   
+}
+
+@When("^user enters OrangeHRM App URL address$")
+public void user_enters_OrangeHRM_App_URL_address() throws Throwable {
+   
+}
+
+@Then("^user should be validate the login page$")
+public void user_should_be_validate_the_login_page() throws Throwable {
+    
+}
+
+@Then("^user should close the OrangeHRM application$")
+public void user_should_close_the_OrangeHRM_application() throws Throwable {
+    
+}
+
+	
+}

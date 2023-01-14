@@ -1,0 +1,27 @@
+package com.ConstructorEaxmple;
+
+public class ConstrctorOverloading {
+
+	
+	public ConstrctorOverloading() {
+		System.out.println("ConstrucorOverloading with out parameters");
+	}
+	
+	
+	public ConstrctorOverloading(String msg) {
+		System.out.println("ConstrctorOverloading with parameters");
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		ConstrctorOverloading c=new ConstrctorOverloading();
+		ConstrctorOverloading c1=new ConstrctorOverloading("parameters");
+		
+		
+	}
+
+}

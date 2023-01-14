@@ -1,0 +1,31 @@
+package com.StaticExample;
+
+public class StaticVariable {
+
+	int a=10,d;
+	static int b=10;
+	
+	
+	StaticVariable(){
+		
+		a++;
+		b++;
+		System.out.println(a+" "+b);
+	}
+	
+	StaticVariable(int c){
+		d=c;
+		System.out.println(d);
+		
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		StaticVariable s1=new StaticVariable();
+		StaticVariable s2=new StaticVariable();
+		StaticVariable s3=new StaticVariable();
+
+	}
+
+}

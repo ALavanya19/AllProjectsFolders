@@ -1,0 +1,32 @@
+browserName=opera
+applicationUrlAddress=http://127.0.0.1/orangehrm-4.2.0.1/symfony/web/index.php/auth/login
+
+expected_OrangeHRMTitle=OrangeHRM
+expected_OrangeHRMUrlAddress=orangehrm-4.2.0.1
+expected_OrangeHRMLoginPanelText=LOGIN Panel
+
+
+loginPanel=logInPanelHeading
+
+expected_DashboardUrl=dashboard
+
+
+username=txtUsername
+password=txtPassword
+loginButton=btnLogin
+
+pimElement=menu_pim_viewPimModule
+addEmployee=menu_pim_addEmployee
+firstName=firstName
+middleName=middleName
+lastName=lastName
+empID=employeeId
+save=btnSave
+
+empList=menu_pim_viewEmployeeList
+tablePaging=paging top
+resultTable=resultTable
+
+
+welcome_Admin=welcome
+logout=Logout

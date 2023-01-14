@@ -1,0 +1,9 @@
+package com.orangehrmpages;
+
+import com.orangehrm.Base;
+
+public class ResetPasswordPage extends Base {
+
+	
+	
+}

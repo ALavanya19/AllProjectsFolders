@@ -1,0 +1,17 @@
+package com.seleniumpractice;
+
+import java.io.IOException;
+
+import com.config.PropertyConfig;
+
+public class BaseTest {
+
+   public BaseTest() throws IOException {
+	   
+	   PropertyConfig.readFile();
+	   
+	   
+   }
+		
+		
+}

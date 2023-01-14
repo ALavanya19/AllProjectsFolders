@@ -1,0 +1,9 @@
+adminP=menu_admin_viewAdminModule
+
+adminUserManagement=menu_admin_UserManagement
+adminUserManagementUsers=menu_admin_viewSystemUsers
+
+adminJob=menu_admin_Job
+adminJobTitles=menu_admin_viewJobTitleList
+adminJobPayGrades=menu_admin_viewPayGrades
+adminJobEmpStatus=menu_admin_employmentStatus

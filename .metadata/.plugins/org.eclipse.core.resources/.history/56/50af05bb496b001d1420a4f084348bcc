@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="OrangeHRMApplication>
+ <test name="LoginTest">
+ <classes> 
+  <class name="com.OrangeHRMTestNG.OrangeHRM_TestNG_Login"/>
+ </classes>
+</test>
+<test name="LoginTest">
+ <classes> 
+  <class name="com.OrangeHRMTestNG.OrangeHRM_AddEmployee"/>
+ </classes>
+</test>
+</suite>
+  

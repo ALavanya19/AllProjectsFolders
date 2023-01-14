@@ -1,0 +1,13 @@
+package com.log4j;
+
+import com.Utility.Log;
+public class Log4jEx {
+	
+	
+	public static void main(String [] arg) {
+	
+		//Log logg=new Log();
+		Log.info()
+	}
+
+}

@@ -1,0 +1,16 @@
+package com.seleniumpractice;
+
+import com.config.PropertyConfig;
+
+public class BaseTest {
+
+	public testBase() {
+		
+		
+		
+		
+	}
+		
+	
+
+}

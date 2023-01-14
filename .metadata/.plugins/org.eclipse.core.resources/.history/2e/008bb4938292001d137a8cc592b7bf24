@@ -1,0 +1,19 @@
+package com.StaticExample;
+
+public class StaticVariable {
+
+	StaticVariable(){
+		
+	}
+	
+	
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		
+
+	}
+
+}

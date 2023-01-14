@@ -1,0 +1,10 @@
+<suite name="OrangeHRMApplicationGrid">
+  <test name="onchrome">
+  <parameter name="Browser" value="chrome"/>
+   <classes>
+    <class name="com.Grid.GridExample"/>
+   </classes>
+  </test>
+
+</suite>
+  

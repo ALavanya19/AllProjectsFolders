@@ -1,0 +1,23 @@
+package com.PatternExamples;
+
+public class FebonacciSeries {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int pre=0,next=1,add=0,count=8;
+		
+		System.out.print(pre+" "+next);
+		for(int i=2;i<count;i++)
+		{
+			add=pre+next;
+			System.out.print(add+" ");
+			pre=next;
+			next=add;
+			
+		}
+		
+		
+	}
+
+}

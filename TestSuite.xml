@@ -1,0 +1,13 @@
+<suite name="Orange HRM" parallel="tests">
+<test name="adminTest">
+   <classes>
+     <class name="TestNG_TestCase6"/>
+   </classse>
+ </test>
+
+ <test name="pimTest">
+   <classes>
+     <class name="TestNG_TestCase9"/>
+   </classse>
+ </test>
+</suite>

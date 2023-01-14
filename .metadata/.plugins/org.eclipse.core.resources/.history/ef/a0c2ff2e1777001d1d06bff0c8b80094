@@ -1,0 +1,9 @@
+package com.thiskeyword;
+
+public class BaseTest {
+
+	
+	
+	public static WebDriver driver;
+
+}

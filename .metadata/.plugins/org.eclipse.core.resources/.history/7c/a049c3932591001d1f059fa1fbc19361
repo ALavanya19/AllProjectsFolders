@@ -1,0 +1,15 @@
+package com.orangehrm;
+
+import java.io.IOException;
+
+public class Hook {
+	
+	public void setUp() throws IOException {
+		
+		Base.initilization();
+	}
+
+	public void tearDown() {
+		Base.tearDown();
+	}
+}

@@ -1,0 +1,131 @@
+package com.OrangeHRM;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.List;
+import java.util.Properties;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Test;
+
+import com.OrangeHRMApplication.BaseTest;
+import com.Utility.Log;
+
+public class AdminUserManagementTest extends BaseTest {
+
+	@Test(priority=1)
+	  public void LoginTest() throws IOException {
+	 
+			//Get the Orange HRM properties file
+			orangeHRMElementsProperties=new FileInputStream("./src/main/java/com/OrangeHRM/config/OrangeHRM_Properties.properties");
+			prop=new Properties();
+			prop.load(orangeHRMElementsProperties);
+			
+			//identify the Username and Password and pass the multiple data from excel
+			driver.findElement(By.xpath("//*[@id='"+(prop.getProperty("username")+"']"))).sendKeys("ALavanya19");
+			driver.findElement(By.xpath("//*[@id='"+(prop.getProperty("password")+"']"))).sendKeys("ALavanya@19");
+			driver.findElement(By.xpath("//*[@id='"+(prop.getProperty("loginButton")+"']"))).click();
+		     
+			Log.info("Navigated to Orange HRM Home Page");
+		
+	  }
+    @Test(priority=2)
+    public void adminUserManagementUsersTest() {
+    	
+    	try {
+			orangeHRMAdminProperties=new FileInputStream("./src/main/java/com/OrangeHRM/config/OrangeHRM_Admin.properties");
+			prop=new Properties();
+			prop.load(orangeHRMAdminProperties);
+		} 
+    	catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+         catch (IOException e) {
+			e.printStackTrace();
+		}
+    	
+    	
+    	//Go to Admin Tab
+    	WebElement adminE=driver.findElement(By.xpath("//*[@id='"+prop.getProperty("adminP")+"']"));
+    	
+    	
+    	Actions action=new Actions(driver);
+    	action.moveToElement(adminE).perform();
+    	
+    	WebElement userManagementE=driver.findElement(By.xpath("//*[@id='"+prop.getProperty("adminUserManagementP")+"']"));
+    	action.moveToElement(userManagementE).perform();
+    	WebElement userManagementUsersE=driver.findElement(By.xpath("//*[@id='"+prop.getProperty("adminUserManagementUsersP")+"']"));
+    	userManagementUsersE.click();
+    	
+    	
+    	String actual_usersSystemUsersUsernameText=driver.findElement(By.xpath(prop.getProperty("usersSystemUsersUsernameTextP"))).getText();
+    	if(actual_usersSystemUsersUsernameText.equals(prop.getProperty("expected_usersSystemUsersUsernameText")))
+    	{
+    		Log.info("Valid Username Text");
+    	}
+    	else
+    	{
+    		Log.info("Invalid Username Text");
+    	}
+    	
+    	driver.findElement(By.xpath("//*[@name='"+prop.getProperty("usersSystemUsersUsernameP")+"']")).sendKeys("A Lavanya");
+    	
+    	String actual_usersSystemUsersUserRoleText=driver.findElement(By.xpath(prop.getProperty("usersSystemUsersUserRoleTextP"))).getText();
+    	if(actual_usersSystemUsersUserRoleText.equals(prop.getProperty("expected_usersSystemUsersUserRoleText")))
+    	{
+    		Log.info("Valid User Role Text");
+    	}
+    	else
+    	{
+    		Log.info("Invalid User Role Text");
+    	}
+    	
+    	WebElement userRoleE=driver.findElement(By.xpath("//*[@name='"+prop.getProperty("usersSystemUserUserRoleP")+"']"));
+    	String actual_usersEmpNameText=driver.findElement(By.xpath("//*[@id='"+prop.getProperty("usersEmpNameText")+"']")).getText();
+    	if(actual_usersEmpNameText.equals(prop.getProperty("expected_usersEmpNameText")))
+    	{
+    		Log.info("Valid Employee Text");
+    	}
+    	else
+    	{
+    		Log.info("Invalid Employee Text");
+    	}
+    	
+    	
+    	WebElement statusE=driver.findElement(By.xpath("//*[@id='"+prop.getProperty("searchSystemUser_status")+"']"));
+    	String actual_statusText=driver.findElement(By.xpath(prop.getProperty("usersStatusText"))).getText();
+    	if(actual_statusText.equals(prop.getProperty("expected_usersStatusText")))
+    	{
+    		Log.info("Valid Status Text");
+    	}
+    	else
+    	{
+    		Log.info("Invalid Status Text");
+    	}
+    	
+    	
+    	List<WebElement>userRoleList=userRoleE.findElements(By.tagName("option"));
+    	List<WebElement>statusList=statusE.findElements(By.xpath("//*[@id='"+prop.getProperty("usersStatusP")+"']"));
+    	
+    	Select select=new Select(userRoleE);
+    	for(int userRoleOption=0;userRoleOption<userRoleList.size();userRoleOption++)
+    	{
+    		if(statusList.get(userRoleOption).getAttribute("value").equals("0"))
+    		{
+    		     select.selectByVisibleText("ALL");
+    		     for(int statusOption=0;statusOption<statusList.size();statusOption++)
+    	 	     {
+    			    select.selectByValue();
+    	         }
+    		}
+    	}
+    	
+    	
+    }
+	
+	
+}

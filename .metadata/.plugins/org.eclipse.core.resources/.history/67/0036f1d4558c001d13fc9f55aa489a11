@@ -1,0 +1,11 @@
+package com.seleniumpractice;
+
+import java.io.IOException;
+
+import com.logs.Log;
+
+public class BaseTest {
+
+  
+		
+}

@@ -1,0 +1,11 @@
+package com.logs;
+
+import java.util.logging.Logger;
+
+public class LogFile {
+
+	Logger logg=Logger.getLogger(LogFile.class)
+	
+	
+	
+}

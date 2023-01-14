@@ -1,0 +1,7 @@
+package com.AbstractEx;
+
+public interface InterfaceE {
+
+	abstract void m5();
+	
+}

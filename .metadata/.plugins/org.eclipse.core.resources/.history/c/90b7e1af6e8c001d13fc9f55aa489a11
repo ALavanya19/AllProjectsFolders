@@ -1,0 +1,7 @@
+2023-01-04 15:26:31,206 - com.logs.Log -INFO - Edge Browser Lunched Successfully
+2023-01-04 15:26:31,416 - com.logs.Log -INFO - Browser Maximized
+2023-01-04 15:26:37,472 - com.logs.Log -INFO - Application Luanched
+2023-01-04 15:26:39,617 - com.logs.Log -INFO - Test Data File Loaded Successfully
+2023-01-04 15:26:53,859 - com.logs.Log -INFO - Registration Link Cliked Successfully
+2023-01-04 15:26:59,093 - com.logs.Log -INFO - Registration completed 1Record
+2023-01-04 15:27:20,434 - com.logs.Log -INFO - Broswer closed Successfully

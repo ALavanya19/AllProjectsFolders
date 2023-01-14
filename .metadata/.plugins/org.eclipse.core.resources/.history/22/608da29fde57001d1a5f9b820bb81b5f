@@ -1,0 +1,34 @@
+package com.GoDaddy;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.edge.EdgeDriver;
+
+public class GoDaddyTC2AllMenuLinks_Test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		
+		//2. Test Case - Automate all the menu links of godaddy.com with Selenium.
+
+		String applicationURLaddress="https://godaddy.com/";
+		
+		WebDriver driver;
+		
+		System.setProperty("webdriver.edge.driver", "./driverfiles/msedgedriver.exe");
+		driver=new EdgeDriver();
+		
+		driver.get(applicationURLaddress);
+		
+		WebElement menuLinks=driver.findElement(By.id(id-854974d1-0b7e-4ccb-9e9f-012267207184));
+		
+		System.out.println("The MenuLinks are stored");
+		
+		
+		
+		
+	}
+
+}

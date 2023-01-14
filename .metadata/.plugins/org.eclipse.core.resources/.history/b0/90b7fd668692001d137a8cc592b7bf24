@@ -1,0 +1,31 @@
+package com.StaticExample;
+
+public class StaticMethod1 {
+
+	int a=10;
+	static int b=20;
+	
+	public void method1() {
+		a++;
+		b++;
+		System.out.println("Method1 "); 
+		System.out.println("Normal Variable "+a+" Static Variable "+b); //normal and static variable can access in normal method
+	}
+	
+	public static void staticMethod1() {
+		b++;
+		System.out.println("Static Method1");
+		System.out.println(" Static Variable "+b);  //only static variable can access in static method canot access normal variables
+	}
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		StaticMethod1 s1=new StaticMethod1();
+		StaticMethod1.staticMethod1();
+		
+		
+	}
+
+}

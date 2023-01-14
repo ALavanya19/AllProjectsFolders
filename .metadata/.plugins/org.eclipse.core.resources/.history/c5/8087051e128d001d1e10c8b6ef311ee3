@@ -1,0 +1,11 @@
+package com.seleniumpractice;
+
+public class SropDownSorting extends BaseTest {
+	
+	//applicationUrl=https://testautomationpractice.blogspot.com/
+	@Test
+	public void animalDropDownSorting() {
+		
+	}
+
+}

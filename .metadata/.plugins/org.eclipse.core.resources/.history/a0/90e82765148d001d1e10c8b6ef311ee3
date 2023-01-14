@@ -1,0 +1,21 @@
+package com.seleniumpractice;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+
+public class DropDownSorting extends BaseTest {
+	
+	//applicationUrl=https://testautomationpractice.blogspot.com/
+	
+	@Test
+	public void animalDropDownSorting() {
+		
+		//Select Animal Dropdown element
+		List<WebElement>animalDropDown=driver.findElements(By.xpath("//select[@name='animals']/option"));
+		
+		
+		
+	}
+
+}

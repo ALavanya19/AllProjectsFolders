@@ -1,0 +1,25 @@
+package com.seleniumpractice;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+
+import org.testng.annotations.Test;
+
+import com.seleniumpractice.BaseTest;
+public class MercuryRegistrationWithExcelData extends BaseTest{
+
+	public MercuryRegistrationWithExcelData() {
+	      
+		testDataFile=new FileInputStream("./")
+		
+	}
+	
+	@Test
+	public void Registration() {
+		
+		
+		
+	}
+	
+
+}

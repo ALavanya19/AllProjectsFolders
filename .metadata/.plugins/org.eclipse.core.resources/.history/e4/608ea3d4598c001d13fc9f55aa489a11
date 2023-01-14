@@ -1,0 +1,8 @@
+package com.seleniumpractice;
+
+import com.seleniumpractice.*;
+public class MercuryRegistrationWithExcelData extends BaseTest{
+	
+	
+
+}

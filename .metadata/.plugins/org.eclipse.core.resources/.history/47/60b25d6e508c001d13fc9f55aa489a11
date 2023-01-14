@@ -1,0 +1,16 @@
+package com.config;
+
+import java.io.FileInputStream;
+import java.util.Properties;
+
+public class ProprtyConfig {
+	
+	public FileInputStream propfile;
+	public Properties prop;
+	
+	public void loadFile() {
+		
+	}
+	
+
+}

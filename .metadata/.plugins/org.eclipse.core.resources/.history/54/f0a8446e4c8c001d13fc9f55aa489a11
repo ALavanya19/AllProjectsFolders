@@ -1,0 +1,17 @@
+package com.logs;
+
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+
+public class Log {
+
+	public static Logger logg=Logger.getLogger(LogFile.class);
+    public static void LogFile(String message) {
+    	
+    	PropertyConfigurator.configure("Log4j.Properties");
+    	logg.info(message);
+    	
+    }
+	
+	
+}

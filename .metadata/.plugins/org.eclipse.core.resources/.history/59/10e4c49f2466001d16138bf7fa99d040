@@ -1,0 +1,10 @@
+package com.Utility;
+
+
+public class Logger {
+	
+   public static void info(String message) {
+	   
+   }
+
+}

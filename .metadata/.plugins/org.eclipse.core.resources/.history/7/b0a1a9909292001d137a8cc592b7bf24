@@ -1,0 +1,18 @@
+package com.Inheritance;
+
+public class InheritanceEx1 {
+
+	InheritanceEx1(){
+		System.out.println("Contructor");
+	}
+	
+	public void m1() {
+		
+		System.out.println("Normal Method");
+	}
+	
+	public static void m2() {
+		
+	}
+   
+}

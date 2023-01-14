@@ -1,0 +1,17 @@
+package com.Inheritance;
+
+public class B extends A {
+
+	public void m4() {
+		System.out.println("M4 called");
+	}
+	public void m5() {
+		System.out.println("M5 called");
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

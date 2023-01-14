@@ -1,0 +1,29 @@
+package com.StaticExample;
+
+public class StaticVariableColleageExample {
+
+	String SName;
+	static int rollno;
+	static String collegeName;
+	
+	public void enroll(String Sname) {
+		
+		SName=Sname;
+		rollno++;
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		StaticVariableColleageExample s1=new StaticVariableColleageExample();
+		StaticVariableColleageExample s2=new StaticVariableColleageExample();
+		StaticVariableColleageExample s3=new StaticVariableColleageExample();
+		s1.enroll("Siva");
+		s2.enroll("Baba");
+		s3.enroll("Ram");
+		 
+	}
+
+}

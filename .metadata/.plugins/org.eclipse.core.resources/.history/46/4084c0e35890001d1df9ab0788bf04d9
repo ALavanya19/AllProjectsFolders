@@ -1,0 +1,18 @@
+package com.orangehrmpages;
+
+import org.openqa.selenium.support.PageFactory;
+
+import com.orangehrm.Base;
+
+public class sendPasswordResetPage extends Base {
+
+	public sendPasswordResetPage() {
+	    PageFactory.initElements(driver, this);
+	}
+	
+	//business loginc
+	public String linkSentMessage() {
+		
+		return driver.
+	}
+}

@@ -1,0 +1,37 @@
+package com.BrokenLinks;
+
+import java.util.Iterator;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class BrokenLinks {
+
+	public static void main(String[] args) {
+		
+		String applicationUrl="https://demoqa.com/broken";
+		WebDriver driver;
+		//System.setProperty("webdriver.edge.driver", "./NewDriverFiles/msedgedriver.exe");
+				WebDriverManager.edgedriver().setup();
+		driver=new EdgeDriver();
+		driver.get(applicationUrl);
+		
+		List<WebElement>links=driver.findElements(By.tagName("a"));
+		Iterator<WebElement>it=links.iterator();
+		System.out.println("Links Available in Website is: "+links.size()+" Available links are: ");
+		while(it.hasNext()) {
+			String linkNames=it.next().getAttribute("href");
+			System.out.println(linkNames);
+		}
+		
+		
+		
+	}
+
+}

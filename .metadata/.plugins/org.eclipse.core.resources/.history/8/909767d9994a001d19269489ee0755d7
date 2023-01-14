@@ -1,0 +1,10 @@
+package com.ConditionalOperator;
+
+public class IfelseExample {
+
+	public static void main(String[] args) {
+		
+		int var1=150;
+		float var2=105.5;
+	}
+}

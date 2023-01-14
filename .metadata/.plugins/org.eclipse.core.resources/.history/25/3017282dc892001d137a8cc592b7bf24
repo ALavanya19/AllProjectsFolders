@@ -1,0 +1,26 @@
+package com.AbstractEx;
+
+public abstract class B extends A{
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+    abstract void m4() {
+    	
+    }
+	
+	
+	@Override
+	void m1() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	void m2() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

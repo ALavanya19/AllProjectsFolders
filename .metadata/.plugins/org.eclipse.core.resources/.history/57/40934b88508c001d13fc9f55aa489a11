@@ -1,0 +1,20 @@
+package com.config;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Properties;
+
+public class ProprtyConfig {
+	
+	public FileInputStream propfile;
+	public Properties prop;
+	
+	public void readFile() throws FileNotFoundException {
+		
+		propfile=new FileInputStream("./SeleniumPractice/src/main/java/com/config/proprty.properties");
+		prop=new Properties();
+		
+	}
+	
+
+}

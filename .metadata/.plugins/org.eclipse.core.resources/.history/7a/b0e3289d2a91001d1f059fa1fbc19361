@@ -1,0 +1,78 @@
+package com.orangehrm;
+
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.opera.OperaDriver;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Test;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class Base  {
+
+	public static WebDriver driver;
+	
+	
+	public static void initilization() throws IOException {
+		
+		String browserName=Utilies.readPropFileData("browser");
+		
+		//create browser properties
+		if(browserName.equalsIgnoreCase("opera")) {
+			WebDriverManager.operadriver().setup();
+			driver=new OperaDriver();
+			Logs.info("OperaDriver Lunched Successfully");
+		}
+		else if(browserName.equalsIgnoreCase("firefox"))
+		{
+			WebDriverManager.firefoxdriver().setup();
+			driver=new FirefoxDriver();
+			Logs.info("Firefox Driver Lunched Successfully");
+		}
+		else if(browserName.equalsIgnoreCase("edge")) {
+			WebDriverManager.edgedriver().setup();
+			driver=new EdgeDriver();
+			Logs.info("Edge Driver Lunched Successfully");
+		}
+		else if(browserName.equalsIgnoreCase("chrome"))
+		{
+			WebDriverManager.chromedriver().setup();
+			driver=new ChromeDriver();
+			Logs.info("ChromeDriver Lunched Successfully");
+		}
+		else
+		{
+			Logs.warn("Please Enter Correct Browser Name");
+		}
+		//maximize vrowser
+		Dimension d=new Dimension(800,700);
+		driver.manage().window().setSize(d);
+	
+		//implicit wait
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(20,TimeUnit.SECONDS);
+		
+		//lunch application
+		driver.get(Utilies.readPropFileData("applicationUrl"));
+		Logs.info("OrangeHRM Application lunched Successfully");
+		
+		
+	}
+	
+	
+	public static void tearDown() {
+		
+		Reports.tearDown();
+		driver.quit();
+		Logs.info("OrangeHRM Application Closed");
+	}
+	
+}

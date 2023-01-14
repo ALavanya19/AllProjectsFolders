@@ -1,0 +1,11 @@
+package com.thiskeyword;
+
+
+public class A {
+
+	void m() {
+		System.out.println("M Method");
+	}
+	
+	
+}

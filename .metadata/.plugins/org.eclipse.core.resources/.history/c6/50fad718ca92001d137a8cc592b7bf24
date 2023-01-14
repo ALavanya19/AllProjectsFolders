@@ -1,0 +1,22 @@
+package com.AbstractEx;
+
+public abstract class B extends A im{
+
+	
+    abstract void m4();
+	
+	
+	@Override
+	void m1() {
+		// TODO Auto-generated method stub
+		System.out.println("m1 Method");
+		
+	}
+
+	@Override
+	void m2() {
+		// TODO Auto-generated method stub
+		System.out.println("M2 method");
+	}
+
+}
